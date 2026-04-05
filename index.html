@@ -29,7 +29,6 @@
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-main); overflow-x: hidden; line-height: 1.6; }
 
-    /* ─── INDEX (UPPER RIGHT) ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: flex-end;
@@ -38,18 +37,10 @@
       backdrop-filter: blur(8px);
     }
     .nav-links { display: flex; gap: 1.8rem; }
-    .nav-links a {
-      font-family: var(--font-main); font-size: .7rem; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim);
-      text-decoration: none; transition: color .2s;
-    }
+    .nav-links a { font-family: var(--font-main); font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ─── HERO ─── */
-    #hero {
-      min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      padding: 0 3rem; text-align: center;
-    }
+    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 3rem; text-align: center; }
     .hero-tag { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .hero-name { font-family: var(--font-main); font-weight: 700; font-size: clamp(2.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; color: var(--text); white-space: nowrap; margin-bottom: 1.5rem; }
     .hero-name span { color: var(--accent); }
@@ -58,21 +49,47 @@
     .chapter-link { font-family: var(--font-main); font-size: 1.1rem; font-weight: 400; color: var(--text); text-decoration: none; letter-spacing: 0.02em; transition: all 0.3s; padding: 0.5rem 1rem; border-bottom: 1px solid transparent; }
     .chapter-link:hover { color: var(--accent); border-bottom: 1px solid var(--accent); transform: translateY(-2px); }
 
-    /* ─── SECTIONS ─── */
     .section-inner { max-width: 1100px; margin: 0 auto; padding: 8rem 3rem; }
     .section-title { font-family: var(--font-bebas); font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: 3rem; color: var(--text); }
     
-    /* Category Labels */
-    .category-header {
-      font-family: var(--font-main); font-size: 0.9rem; font-weight: 600; color: var(--accent);
-      margin-top: 3rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.15em;
-      display: flex; align-items: center; gap: 1rem;
+    /* ─── COLLAPSIBLE STYLING ─── */
+    .collapsible-container { margin-bottom: 1.5rem; }
+    
+    .category-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--accent);
+      font-family: var(--font-main);
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: 0.3s;
     }
-    .category-header::after { content: ""; height: 1px; flex-grow: 1; background: var(--border); }
+    .category-btn:hover { color: var(--text); }
+    .category-btn::after { content: '+'; font-size: 1.2rem; transition: 0.3s; }
+    .category-btn.active::after { content: '−'; transform: rotate(180deg); }
 
-    .index-sub-title { font-family: var(--font-main); font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-top: 5rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: rgba(255,255,255,0.02);
+    }
 
-    /* ─── EXPERIENCE ─── */
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; padding: 2rem 0; }
+    .card { background: var(--card); padding: 2.2rem; border: 1px solid var(--border); transition: 0.3s; }
+    .card:hover { border-color: var(--accent); }
+    .card-title { font-family: var(--font-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; }
+    .card-text { font-family: var(--font-serif); font-size: 1rem; color: var(--text-dim); line-height: 1.5; }
+
     #experience { background: var(--surface); }
     .exp-item { display: grid; grid-template-columns: 1fr 3fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
     .exp-role { font-family: var(--font-main); font-weight: 600; font-size: 1.3rem; color: var(--accent); }
@@ -80,14 +97,8 @@
     .exp-bullets li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; }
     .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
 
-    /* ─── CARDS ─── */
-    .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-    .card { background: var(--card); padding: 2.2rem; border: 1px solid var(--border); transition: 0.3s; height: 100%; }
-    .card:hover { border-color: var(--accent); transform: translateY(-5px); }
-    .card-title { font-family: var(--font-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; }
-    .card-text { font-family: var(--font-serif); font-size: 1rem; color: var(--text-dim); line-height: 1.5; }
+    .index-sub-title { font-family: var(--font-main); font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-top: 5rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* ─── CONTACT ─── */
     #contact { background: var(--surface); padding: 10rem 0; text-align: center; }
     .contact-big { font-family: var(--font-bebas); font-size: clamp(4rem, 15vw, 10rem); color: var(--text); line-height: 0.9; }
     .contact-big span { color: var(--accent); }
@@ -167,39 +178,39 @@
     <div class="section-inner">
       <h2 class="section-title">What I have built</h2>
       
-      <div class="category-header">AI Projects</div>
-      <div class="grid-container">
-        <div class="card">
-          <div class="card-title">Agentic Supply Chain Optimizer</div>
-          <p class="card-text">Developed a PPO reinforcement learning model for inventory rebalancing using Google Vertex AI and Gemini agents for natural language disruption analysis.</p>
-        </div>
-        <div class="card">
-          <div class="card-title">Autonomous Web Navigator</div>
-          <p class="card-text">Building a specialized AI agent designed to navigate complex web structures autonomously for research and data extraction.</p>
-        </div>
-      </div>
-
-      <div class="category-header">ML Projects</div>
-      <div class="grid-container">
-        <div class="card">
-          <div class="card-title">LLM Suicide Risk Analysis</div>
-          <p class="card-text">Built an LLM-based feature extraction pipeline transforming 225K+ posts into structured variables using RoBERTa emotion models.</p>
-        </div>
-        <div class="card">
-          <div class="card-title">Demand Forecasting Engine</div>
-          <p class="card-text">Engineered time-series features for SKU-level inventory planning using modular dbt models and Snowflake data.</p>
+      <div class="collapsible-container">
+        <button class="category-btn">AI Projects</button>
+        <div class="collapsible-content">
+          <div class="grid-container">
+            <div class="card">
+              <div class="card-title">Agentic Supply Chain Optimizer</div>
+              <p class="card-text">Developed a PPO reinforcement learning model for inventory rebalancing using Google Vertex AI and Gemini agents.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="category-header">Visualization</div>
-      <div class="grid-container">
-        <div class="card">
-          <div class="card-title">Budgetary Insights Dashboard</div>
-          <p class="card-text">Created real-time Power BI dashboards for financial tracking, accelerating monthly financial close by one full day.</p>
+      <div class="collapsible-container">
+        <button class="category-btn">ML Projects</button>
+        <div class="collapsible-content">
+          <div class="grid-container">
+            <div class="card">
+              <div class="card-title">LLM Suicide Risk Analysis</div>
+              <p class="card-text">Built an LLM-based feature extraction pipeline transforming 225K+ posts into structured variables using RoBERTa models.</p>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-title">Supply Chain Disruption Tracker</div>
-          <p class="card-text">Visualizing node-level warehouse stockouts and holding costs to provide executive-level supply chain transparency.</p>
+      </div>
+
+      <div class="collapsible-container">
+        <button class="category-btn">Visualization</button>
+        <div class="collapsible-content">
+          <div class="grid-container">
+            <div class="card">
+              <div class="card-title">Power BI Financial Dashboard</div>
+              <p class="card-text">Deployed Airflow workflows enabling real-time dashboards, accelerating monthly financial close by one day.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -220,7 +231,7 @@
       <div class="contact-links">
         <a href="mailto:krutikakulkarni0219@gmail.com">Email</a>
         <a href="https://linkedin.com/in/krutika-kulkarni">LinkedIn</a>
-        <a href="https://github.com/krutikakulkarni-git">GitHub</a>
+        <a href="https://github.com/krutika-kulkarni">GitHub</a>
       </div>
     </div>
   </section>
@@ -228,6 +239,22 @@
   <footer>
     <div>© 2026 Krutika Kulkarni · Chicago, IL</div>
   </footer>
+
+  <script>
+    /* JavaScript for Collapsible Functionality */
+    const coll = document.getElementsByClassName("category-btn");
+    for (let i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
