@@ -5,26 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krutika Kulkarni — Data Engineer</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Mono&display=swap" rel="stylesheet"/>
   
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* YOUR NEW COLOR PALETTE */
-      --bg: #2E3047;         /* Deep Navy/Slate background */
-      --surface: #43455C;    /* Lighter Slate for alternate sections */
-      --card: #383a54;       /* Mid-tone for cards */
-      --accent: #3BBA9C;     /* Seafoam text/accents */
+      --bg: #2E3047;         
+      --surface: #43455C;    
+      --card: #383a54;       
+      --accent: #3BBA9C;     
       --border: #ffffff0a;
       
       --text: #ffffff;
       --text-dim: #cad3dc;
       --muted: #8c92ac;
       
-      --font-serif: 'Rufina', serif;
-      --font-mono: 'DM Mono', monospace;
+      --font-main: 'Josefin Sans', sans-serif;
+      --font-serif: 'Crimson Pro', serif; /* Sabon look-alike */
       --font-bebas: 'Bebas Neue', sans-serif;
+      --font-mono: 'DM Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -32,45 +32,32 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font-serif);
+      font-family: var(--font-main);
       overflow-x: hidden;
     }
 
-    /* ─── NOISE OVERLAY ─── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0;
-      opacity: 0.4;
-    }
-
-    /* ─── NAV ─── */
+    /* ─── INDEX (UPPER RIGHT) ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 3rem;
-      border-bottom: 1px solid var(--border);
-      background: #2e3047ee;
-      backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: flex-end; /* Align right */
+      padding: 1.5rem 3rem;
+      background: linear-gradient(to bottom, #2e3047ee, transparent);
+      backdrop-filter: blur(8px);
     }
-    .nav-logo {
-      font-family: var(--font-bebas);
-      font-size: 1.6rem;
-      color: var(--accent);
-    }
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.8rem; }
     .nav-links a {
-      font-family: var(--font-mono);
-      font-size: .7rem;
+      font-family: var(--font-main);
+      font-size: .75rem;
+      font-weight: 400;
       text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: var(--text-dim);
       text-decoration: none;
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ─── HERO ─── */
+    /* ─── HERO (CENTERED CHAPTERS) ─── */
     #hero {
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -79,157 +66,126 @@
     }
     .hero-tag {
       font-family: var(--font-mono);
-      font-size: .75rem;
-      letter-spacing: .2em;
+      font-size: .7rem;
+      letter-spacing: .3em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1rem;
-      opacity: 0; animation: fadeUp .6s .2s forwards;
     }
     .hero-name {
       font-family: var(--font-bebas);
-      font-size: clamp(3rem, 9vw, 7.5rem);
-      line-height: 1;
+      font-size: clamp(3.5rem, 12vw, 9rem);
+      line-height: 0.85;
       color: var(--text);
-      opacity: 0; animation: fadeUp .7s .35s forwards;
       white-space: nowrap;
+      margin-bottom: 1.5rem;
     }
     .hero-name span { color: var(--accent); }
+    
     .hero-sub {
-      margin: 1.5rem auto 0;
+      font-family: var(--font-serif);
       font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
       color: var(--text-dim);
-      max-width: 700px;
-      line-height: 1.6;
-      opacity: 0; animation: fadeUp .7s .5s forwards;
-    }
-    .hero-cta {
-      margin-top: 2.5rem;
-      display: flex; gap: 1rem;
-      opacity: 0; animation: fadeUp .7s .65s forwards;
+      max-width: 800px;
+      line-height: 1.5;
+      margin-bottom: 3rem;
     }
 
-    /* ─── BUTTONS ─── */
-    .btn {
-      padding: .8rem 1.8rem;
-      font-family: var(--font-mono);
-      font-size: .75rem;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all .2s;
-      border-radius: 2px;
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-      font-weight: 500;
-    }
-    .btn-primary:hover { background: #4cd4b5; transform: translateY(-2px); }
-    .btn-ghost {
-      border: 1px solid var(--border);
+    
+    .chapter-link {
+      font-family: var(--font-main);
+      font-size: 1.1rem;
+      font-weight: 300;
       color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid transparent;
     }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .chapter-link:hover {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+      transform: translateY(-2px);
+    }
 
-    /* ─── SECTIONS ─── */
+    /* ─── SECTION STYLING ─── */
     .section-inner {
       max-width: 1100px;
       margin: 0 auto;
       padding: 8rem 3rem;
     }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: .65rem;
-      color: var(--accent);
-      margin-bottom: .8rem;
-      text-transform: uppercase;
-    }
     .section-title {
       font-family: var(--font-bebas);
-      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-size: clamp(3rem, 7vw, 5.5rem);
       margin-bottom: 3rem;
+      color: var(--text);
     }
     .index-sub-title {
-      font-family: var(--font-bebas);
-      font-size: 2rem;
+      font-family: var(--font-main);
+      font-size: 1.4rem;
+      font-weight: 600;
       color: var(--accent);
+      margin-top: 5rem;
       margin-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-      display: inline-block;
-      padding-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
-    /* ─── EXPERIENCE ─── */
+    /* ─── EXPERIENCE & CARDS ─── */
     #experience { background: var(--surface); }
     .exp-item {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      gap: 3rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-      opacity: 0; transform: translateY(20px); transition: all .6s;
+      display: grid; grid-template-columns: 1fr 3fr; gap: 3rem;
+      padding: 2.5rem 0; border-bottom: 1px solid var(--border);
     }
-    .exp-item.visible { opacity: 1; transform: none; }
-    .exp-company { font-weight: 700; font-size: 1.2rem; margin-bottom: .2rem; }
-    .exp-period { font-family: var(--font-mono); font-size: .65rem; color: var(--muted); }
-    .exp-role { font-family: var(--font-bebas); font-size: 1.8rem; color: var(--accent); margin-bottom: 1rem; }
-    .exp-bullets { list-style: none; color: var(--text-dim); font-size: .95rem; }
-    .exp-bullets li { position: relative; padding-left: 1.5rem; margin-bottom: .6rem; line-height: 1.6; }
-    .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+    .exp-role { font-family: var(--font-main); font-weight: 600; font-size: 1.4rem; color: var(--accent); }
+    .exp-bullets { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.6; color: var(--text-dim); list-style: none; }
+    .exp-bullets li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; }
+    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
 
-    /* ─── CARDS (SKILLS, PROJECTS, EDU) ─── */
     .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
     }
     .card {
-      background: var(--card);
-      padding: 2rem;
-      border: 1px solid var(--border);
-      opacity: 0; transform: translateY(20px); transition: all .5s;
+      background: var(--card); padding: 2.2rem; border: 1px solid var(--border); transition: 0.3s;
     }
-    .card.visible { opacity: 1; transform: none; }
-    .card:hover { border-color: var(--accent); }
-    
-    .card-label { font-family: var(--font-mono); font-size: .6rem; color: var(--accent); margin-bottom: .8rem; text-transform: uppercase; }
-    .card-title { font-weight: 700; font-size: 1.3rem; margin-bottom: .8rem; }
-    .card-text { font-size: .9rem; color: var(--text-dim); line-height: 1.6; }
+    .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+    .card-title { font-family: var(--font-main); font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; }
+    .card-text { font-family: var(--font-serif); font-size: 1rem; color: var(--text-dim); line-height: 1.5; }
 
     /* ─── CONTACT ─── */
-    #contact { background: var(--surface); }
-    .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    .contact-big { font-family: var(--font-bebas); font-size: clamp(3rem, 8vw, 7rem); line-height: .9; }
+    #contact { background: var(--surface); padding: 10rem 0; text-align: center; }
+    .contact-big { font-family: var(--font-bebas); font-size: clamp(4rem, 15vw, 10rem); color: var(--text); line-height: 0.9; }
     .contact-big span { color: var(--accent); }
-    .contact-link {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem; background: var(--card); border: 1px solid var(--border);
-      text-decoration: none; color: var(--text); margin-bottom: 1rem;
-      font-family: var(--font-mono); font-size: .8rem; transition: transform .2s;
-    }
-    .contact-link:hover { transform: translateX(5px); border-color: var(--accent); }
+    .contact-links { display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; }
+    .contact-links a { font-family: var(--font-main); text-decoration: none; color: var(--accent); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    footer { padding: 2rem 3rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: .65rem; color: var(--muted); border-top: 1px solid var(--border); }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    footer { padding: 3rem; font-family: var(--font-mono); font-size: .65rem; color: var(--muted); border-top: 1px solid var(--border); text-align: center; }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      nav { justify-content: center; padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.6rem; }
       .exp-item { grid-template-columns: 1fr; gap: 1rem; }
-      .contact-flex { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-logo">KK</div>
     <div class="nav-links">
-      <a href="#experience">Where I have worked</a>
-      <a href="#projects">What I have built</a>
-      <a href="#contact">Get in touch</a>
+      <a href="#experience">Work Ex</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Technical Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Reach Out</a>
     </div>
   </nav>
 
@@ -237,60 +193,56 @@
     <div class="hero-tag">Data & Analytics Engineer</div>
     <h1 class="hero-name">Krutika <span>Kulkarni</span></h1>
     <p class="hero-sub">Architecting high-performance data infrastructure and actionable analytics to drive intelligent decision-making.</p>
-    <div class="hero-cta">
-      <a href="#experience" class="btn btn-primary">Where I have worked</a>
-      <a href="#projects" class="btn btn-ghost">What I have built</a>
+    
+    <div class="hero-cta-group">
+      <a href="#experience" class="chapter-link">Where I have worked</a>
+      <a href="#projects" class="chapter-link">What I have built</a>
+      <a href="#contact" class="chapter-link">Get in touch</a>
     </div>
   </section>
 
   <section id="experience">
     <div class="section-inner">
-      <div class="section-label">01. Experience</div>
       <h2 class="section-title">Where I have worked</h2>
       
       <div class="exp-grid">
         <div class="exp-item">
           <div class="exp-meta">
-            <div class="exp-company">University of Illinois, Chicago</div>
-            <div class="exp-period">Dec 2024 – Present</div>
+            <strong style="font-size: 1.1rem;">UIC</strong><br>
+            <span class="exp-period">2024 – Present</span>
           </div>
           <div>
-            <div class="exp-role">Graduate Research Assistant — Data Engineer</div>
+            <div class="exp-role">Graduate Research Assistant</div>
             <ul class="exp-bullets">
               <li>Architected automated ETL pipelines reducing weekly reporting overhead by 80%.</li>
-              <li>Consolidated $450K+ in fragmented financial data into a centralized PostgreSQL warehouse.</li>
-              <li>Enabled real-time executive visibility via Airflow and Power BI integration.</li>
+              <li>Consolidated $450K+ in fragmented financial data into a centralized warehouse.</li>
             </ul>
           </div>
         </div>
-
         <div class="exp-item">
           <div class="exp-meta">
-            <div class="exp-company">Accenture</div>
-            <div class="exp-period">Nov 2021 – Jul 2024</div>
+            <strong style="font-size: 1.1rem;">Accenture</strong><br>
+            <span class="exp-period">2021 – 2024</span>
           </div>
           <div>
             <div class="exp-role">Data Engineer</div>
             <ul class="exp-bullets">
-              <li>Engineered 50+ modular dbt models in Snowflake to boost SKU-level forecasting accuracy.</li>
-              <li>Decreased data latency by 40% using event-driven GCP architecture.</li>
-              <li>Reduced monthly cloud compute costs by 25% through advanced query optimization.</li>
+              <li>Engineered 50+ dbt models in Snowflake to boost forecasting accuracy.</li>
+              <li>Reduced data latency by 40% using event-driven GCP architecture.</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div id="education" style="margin-top: 6rem;">
+      <div id="education">
         <h3 class="index-sub-title">Education Index</h3>
         <div class="grid-container">
           <div class="card">
-            <div class="card-label">Master of Science</div>
-            <div class="card-title">Business Analytics</div>
+            <div class="card-title">MS in Business Analytics</div>
             <p class="card-text">University of Illinois, Chicago<br>2024 — 2026</p>
           </div>
           <div class="card">
-            <div class="card-label">Bachelor of Engineering</div>
-            <div class="card-title">Electrical & Electronics</div>
+            <div class="card-title">BE in Electrical Engineering</div>
             <p class="card-text">Visvesvaraya Technological University<br>2017 — 2021</p>
           </div>
         </div>
@@ -300,36 +252,33 @@
 
   <section id="projects">
     <div class="section-inner">
-      <div class="section-label">02. Portfolio</div>
       <h2 class="section-title">What I have built</h2>
       
       <div class="grid-container">
         <div class="card">
-          <div class="card-label">Machine Learning / NLP</div>
           <div class="card-title">LLM Suicide Risk Analysis</div>
           <p class="card-text">Extracted clinical variables from 225K+ posts using RoBERTa models to identify critical treatment gaps.</p>
         </div>
         <div class="card">
-          <div class="card-label">Reinforcement Learning</div>
           <div class="card-title">Agentic Supply Chain Optimizer</div>
           <p class="card-text">Developed a PPO model for warehouse rebalancing using Google Vertex AI and Gemini agents.</p>
         </div>
       </div>
 
-      <div id="skills" style="margin-top: 6rem;">
+      <div id="skills">
         <h3 class="index-sub-title">Technical Skills Index</h3>
         <div class="grid-container">
           <div class="card">
-            <div class="card-label">Languages</div>
-            <div class="card-text">Python, SQL, Java, Scala, Bash</div>
+            <div class="card-title">Languages</div>
+            <p class="card-text">Python, SQL, Java, Scala, Bash</p>
           </div>
           <div class="card">
-            <div class="card-label">Data Engineering</div>
-            <div class="card-text">Apache Spark, Airflow, dbt, Snowflake, Kafka, Databricks</div>
+            <div class="card-title">Engineering</div>
+            <p class="card-text">Spark, Airflow, dbt, Snowflake, Kafka, Databricks</p>
           </div>
           <div class="card">
-            <div class="card-label">Cloud & DevOps</div>
-            <div class="card-text">AWS, GCP, Docker, Kubernetes, Terraform</div>
+            <div class="card-title">Cloud</div>
+            <p class="card-text">AWS, GCP, Docker, Kubernetes, Terraform</p>
           </div>
         </div>
       </div>
@@ -338,32 +287,18 @@
 
   <section id="contact">
     <div class="section-inner">
-      <div class="contact-flex">
-        <div>
-          <div class="section-label">03. Contact</div>
-          <h2 class="contact-big">Get In<br><span>Touch</span></h2>
-        </div>
-        <div>
-          <a href="mailto:krutikakulkarni0219@gmail.com" class="contact-link">Email <span>→</span></a>
-          <a href="https://linkedin.com/in/krutika-kulkarni" target="_blank" class="contact-link">LinkedIn <span>→</span></a>
-          <a href="https://github.com/krutika-kulkarni" target="_blank" class="contact-link">GitHub <span>→</span></a>
-        </div>
+      <h2 class="contact-big">Get In<br><span>Touch</span></h2>
+      <div class="contact-links">
+        <a href="mailto:krutikakulkarni0219@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/krutika-kulkarni">LinkedIn</a>
+        <a href="https://github.com/krutika-kulkarni">GitHub</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <div>© 2026 Krutika Kulkarni</div>
-    <div>Chicago, IL</div>
+    <div>© 2026 Krutika Kulkarni · Chicago, IL</div>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.exp-item, .card').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
