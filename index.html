@@ -11,18 +11,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* NEW COLOR PALETTE & TYPEFACE */
-      --bg: #37475A;         /* Slate background */
-      --surface: #303e4e;    /* Alternate surface for contrast */
-      --card: #293543;       /* Deeper card background */
+      /* YOUR NEW COLOR PALETTE */
+      --bg: #2E3047;         /* Deep Navy/Slate background */
+      --surface: #43455C;    /* Lighter Slate for alternate sections */
+      --card: #383a54;       /* Mid-tone for cards */
+      --accent: #3BBA9C;     /* Seafoam text/accents */
       --border: #ffffff0a;
       
-      --accent: #097087;     /* Deep Teal text */
-      --accent2: #48a0b5;    /* Lighter teal for subtle highlights */
-      
-      --muted: #8395a7;      /* Subtle UI elements */
       --text: #ffffff;
       --text-dim: #cad3dc;
+      --muted: #8c92ac;
       
       --font-serif: 'Rufina', serif;
       --font-mono: 'DM Mono', monospace;
@@ -34,8 +32,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font-serif); /* Primary typeface is now Rufina */
-      font-weight: 400;
+      font-family: var(--font-serif);
       overflow-x: hidden;
     }
 
@@ -45,29 +42,27 @@
       position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
       pointer-events: none; z-index: 0;
-      opacity: 0.6;
+      opacity: 0.4;
     }
 
-    /* ─── INDEX NAV ─── */
+    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 3rem;
+      padding: 1.2rem 3rem;
       border-bottom: 1px solid var(--border);
-      background: #37475Acc; /* Semitransparent background */
-      backdrop-filter: blur(16px);
+      background: #2e3047ee;
+      backdrop-filter: blur(12px);
     }
     .nav-logo {
       font-family: var(--font-bebas);
-      font-size: 1.4rem;
-      letter-spacing: .12em;
+      font-size: 1.6rem;
       color: var(--accent);
     }
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a {
       font-family: var(--font-mono);
       font-size: .7rem;
-      letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--text-dim);
       text-decoration: none;
@@ -75,342 +70,155 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ─── CENTERED HERO ─── */
+    /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       padding: 0 3rem;
-      position: relative;
-      overflow: hidden;
       text-align: center;
-    }
-    .hero-bg-text {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--font-bebas);
-      font-size: clamp(10rem, 22vw, 22rem);
-      letter-spacing: -.02em;
-      color: transparent;
-      -webkit-text-stroke: 1px #ffffff08;
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      z-index: -1;
     }
     .hero-tag {
       font-family: var(--font-mono);
-      font-size: .7rem;
+      font-size: .75rem;
       letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1rem;
       opacity: 0; animation: fadeUp .6s .2s forwards;
     }
-    
-    /* MODIFIED: Single-line name, slightly smaller */
     .hero-name {
       font-family: var(--font-bebas);
-      font-size: clamp(3.5rem, 10vw, 8rem);
-      line-height: .9;
-      letter-spacing: -.01em;
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: 1;
       color: var(--text);
       opacity: 0; animation: fadeUp .7s .35s forwards;
       white-space: nowrap;
     }
     .hero-name span { color: var(--accent); }
-    
     .hero-sub {
       margin: 1.5rem auto 0;
-      font-family: var(--font-serif);
       font-style: italic;
-      font-size: clamp(.95rem, 2.2vw, 1.35rem);
+      font-size: clamp(1rem, 2vw, 1.4rem);
       color: var(--text-dim);
-      max-width: 650px;
+      max-width: 700px;
       line-height: 1.6;
       opacity: 0; animation: fadeUp .7s .5s forwards;
     }
     .hero-cta {
       margin-top: 2.5rem;
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      display: flex; gap: 1rem;
       opacity: 0; animation: fadeUp .7s .65s forwards;
     }
-    
+
     /* ─── BUTTONS ─── */
     .btn {
-      padding: .7rem 1.7rem;
+      padding: .8rem 1.8rem;
       font-family: var(--font-mono);
-      font-size: .72rem;
-      letter-spacing: .12em;
+      font-size: .75rem;
       text-transform: uppercase;
       text-decoration: none;
-      border-radius: 2px;
       transition: all .2s;
-      cursor: pointer;
+      border-radius: 2px;
     }
     .btn-primary {
       background: var(--accent);
-      color: #ffffff;
+      color: var(--bg);
       border: none;
+      font-weight: 500;
     }
-    .btn-primary:hover { 
-      background: #086175; 
-      transform: translateY(-2px);
-    }
+    .btn-primary:hover { background: #4cd4b5; transform: translateY(-2px); }
     .btn-ghost {
-      background: transparent;
+      border: 1px solid var(--border);
       color: var(--text);
-      border: 1px solid #ffffff1a;
     }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ─── SECTION CONTAINERS ─── */
-    section { position: relative; z-index: 1; }
+    /* ─── SECTIONS ─── */
     .section-inner {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 6rem 3rem;
+      padding: 8rem 3rem;
     }
     .section-label {
       font-family: var(--font-mono);
       font-size: .65rem;
-      letter-spacing: .2em;
+      color: var(--accent);
+      margin-bottom: .8rem;
       text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: .6rem;
     }
     .section-title {
       font-family: var(--font-bebas);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      letter-spacing: .02em;
-      line-height: 1;
-      color: var(--text);
-      margin-bottom: 2.5rem;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      margin-bottom: 3rem;
     }
-    
-    /* Title style for the indices (Skills/Education) */
     .index-sub-title {
       font-family: var(--font-bebas);
-      font-size: 1.8rem;
-      letter-spacing: 0.05em;
-      color: var(--text-dim);
+      font-size: 2rem;
+      color: var(--accent);
       margin-bottom: 2rem;
-      padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
       display: inline-block;
+      padding-bottom: 0.5rem;
     }
 
-    /* ─── NARRATIVE 1: EXPERIENCE ─── */
+    /* ─── EXPERIENCE ─── */
     #experience { background: var(--surface); }
-    .exp-grid { display: flex; flex-direction: column; gap: 0; }
     .exp-item {
       display: grid;
       grid-template-columns: 1fr 3fr;
-      gap: 2rem;
-      padding: 2.2rem 0;
+      gap: 3rem;
+      padding: 2.5rem 0;
       border-bottom: 1px solid var(--border);
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .5s, transform .5s;
+      opacity: 0; transform: translateY(20px); transition: all .6s;
     }
     .exp-item.visible { opacity: 1; transform: none; }
-    .exp-meta { padding-top: .3rem; }
-    .exp-company {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text);
-      margin-bottom: .2rem;
-    }
-    .exp-period {
-      font-family: var(--font-mono);
-      font-size: .6rem;
-      letter-spacing: .1em;
-      color: var(--muted);
-    }
-    .exp-role {
-      font-family: var(--font-bebas);
-      font-size: 1.6rem;
-      letter-spacing: .04em;
-      color: var(--accent2);
-      margin-bottom: .8rem;
-    }
-    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
-    .exp-bullets li {
-      font-size: .88rem;
-      line-height: 1.6;
-      color: var(--text-dim);
-      padding-left: 1.2rem;
-      position: relative;
-    }
-    .exp-bullets li::before {
-      content: '▸';
-      position: absolute; left: 0;
-      color: var(--accent2);
-      font-size: .7rem;
-      top: .15rem;
-    }
-    .highlight { color: var(--accent2); font-weight: 700; }
+    .exp-company { font-weight: 700; font-size: 1.2rem; margin-bottom: .2rem; }
+    .exp-period { font-family: var(--font-mono); font-size: .65rem; color: var(--muted); }
+    .exp-role { font-family: var(--font-bebas); font-size: 1.8rem; color: var(--accent); margin-bottom: 1rem; }
+    .exp-bullets { list-style: none; color: var(--text-dim); font-size: .95rem; }
+    .exp-bullets li { position: relative; padding-left: 1.5rem; margin-bottom: .6rem; line-height: 1.6; }
+    .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
-    /* ─── SKILLS INDEX ─── */
-    .skills-grid {
+    /* ─── CARDS (SKILLS, PROJECTS, EDU) ─── */
+    .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
-    .skill-card {
+    .card {
       background: var(--card);
+      padding: 2rem;
       border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.3rem;
-      opacity: 0; transform: translateY(20px);
-      transition: opacity .4s, transform .4s, border-color .2s;
+      opacity: 0; transform: translateY(20px); transition: all .5s;
     }
-    .skill-card.visible { opacity: 1; transform: none; }
-    .skill-card:hover { border-color: var(--accent2); }
-    .skill-cat {
-      font-family: var(--font-mono);
-      font-size: .6rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: .6rem;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
-    .tag {
-      font-family: var(--font-mono);
-      font-size: .65rem;
-      padding: .25rem .6rem;
-      background: #ffffff04;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      color: var(--text-dim);
-    }
-
-    /* ─── NARRATIVE 2: PROJECTS ─── */
-    #projects { background: var(--bg); }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.2rem;
-    }
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.8rem;
-      position: relative;
-      opacity: 0; transform: translateY(20px);
-      transition: opacity .5s, transform .5s, border-color .2s;
-    }
-    .project-card.visible { opacity: 1; transform: none; }
-    .project-card:hover { border-color: var(--accent2); }
-    .project-num {
-      font-family: var(--font-bebas);
-      font-size: 3rem;
-      color: #ffffff06;
-      position: absolute; top: 1rem; right: 1.5rem;
-    }
-    .project-title {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: var(--text);
-      margin-bottom: .6rem;
-    }
-    .project-desc { font-size: .85rem; line-height: 1.6; color: var(--text-dim); }
-
-    /* ─── EDUCATION INDEX ─── */
-    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .edu-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.8rem;
-      opacity: 0; transform: translateY(20px);
-      transition: opacity .5s, transform .5s;
-    }
-    .edu-card.visible { opacity: 1; transform: none; }
-    .edu-degree {
-      font-family: var(--font-bebas);
-      font-size: 1.5rem;
-      color: var(--accent2);
-      margin-bottom: .3rem;
-    }
-    .edu-school {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text);
-    }
-    .edu-period {
-      font-family: var(--font-mono);
-      font-size: .6rem;
-      letter-spacing: .1em;
-      color: var(--muted);
-      margin-top: .15rem;
-    }
-
-    /* ─── NARRATIVE 3: CONTACT ─── */
-    #contact { background: var(--surface); border-top: 1px solid var(--border); }
-    .contact-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 6rem 3rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
-    }
-    .contact-big {
-      font-family: var(--font-bebas);
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: .9;
-      color: var(--text);
-    }
-    .contact-big span { color: var(--accent2); }
+    .card.visible { opacity: 1; transform: none; }
+    .card:hover { border-color: var(--accent); }
     
-    .contact-links { display: flex; flex-direction: column; gap: .8rem; padding-top: .8rem; }
+    .card-label { font-family: var(--font-mono); font-size: .6rem; color: var(--accent); margin-bottom: .8rem; text-transform: uppercase; }
+    .card-title { font-weight: 700; font-size: 1.3rem; margin-bottom: .8rem; }
+    .card-text { font-size: .9rem; color: var(--text-dim); line-height: 1.6; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--surface); }
+    .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-big { font-family: var(--font-bebas); font-size: clamp(3rem, 8vw, 7rem); line-height: .9; }
+    .contact-big span { color: var(--accent); }
     .contact-link {
-      display: flex; align-items: center; gap: .8rem;
-      text-decoration: none;
-      padding: .9rem 1.1rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      transition: border-color .2s, transform .2s;
-    }
-    .contact-link:hover { border-color: var(--accent2); transform: translateX(4px); }
-    .contact-link-icon {
-      font-family: var(--font-mono);
-      font-size: .65rem;
-      color: var(--accent);
-      min-width: 60px;
-      text-transform: uppercase;
-    }
-    .contact-link-val { font-family: var(--font-mono); font-size: .75rem; color: var(--text-dim); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.25rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: var(--bg);
+      padding: 1.2rem; background: var(--card); border: 1px solid var(--border);
+      text-decoration: none; color: var(--text); margin-bottom: 1rem;
+      font-family: var(--font-mono); font-size: .8rem; transition: transform .2s;
     }
-    .footer-text { font-family: var(--font-mono); font-size: .6rem; color: var(--muted); }
+    .contact-link:hover { transform: translateX(5px); border-color: var(--accent); }
 
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: none; }
-    }
+    footer { padding: 2rem 3rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: .65rem; color: var(--muted); border-top: 1px solid var(--border); }
 
-    /* ─── RESPONSIVE ─── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
     @media (max-width: 768px) {
-      nav { padding: .8rem 1.5rem; }
-      .nav-links { display: none; }
-      .section-inner { padding: 4rem 1.5rem; }
-      #hero { padding: 0 1.5rem; }
-      .hero-name { white-space: normal; } /* Allow breaking on very small screens */
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       .exp-item { grid-template-columns: 1fr; gap: 1rem; }
-      .edu-grid { grid-template-columns: 1fr; }
-      .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-flex { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -419,30 +227,25 @@
   <nav>
     <div class="nav-logo">KK</div>
     <div class="nav-links">
-      <a href="#experience">Work Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Technical Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Reach Out</a>
+      <a href="#experience">Where I have worked</a>
+      <a href="#projects">What I have built</a>
+      <a href="#contact">Get in touch</a>
     </div>
   </nav>
 
   <section id="hero">
-    <div class="hero-bg-text">DATA</div>
-    <div class="hero-tag">Data Engineer &amp; Analytics Engineer</div>
-    
+    <div class="hero-tag">Data & Analytics Engineer</div>
     <h1 class="hero-name">Krutika <span>Kulkarni</span></h1>
-    
-    <p class="hero-sub">Building robust data pipelines, scalable cloud infrastructure, and decision-grade analytics that move the needle.</p>
+    <p class="hero-sub">Architecting high-performance data infrastructure and actionable analytics to drive intelligent decision-making.</p>
     <div class="hero-cta">
       <a href="#experience" class="btn btn-primary">Where I have worked</a>
-      <a href="#projects" class="btn btn-ghost">Things I have built</a>
+      <a href="#projects" class="btn btn-ghost">What I have built</a>
     </div>
   </section>
 
   <section id="experience">
     <div class="section-inner">
-      <div class="section-label">01. Journey</div>
+      <div class="section-label">01. Experience</div>
       <h2 class="section-title">Where I have worked</h2>
       
       <div class="exp-grid">
@@ -451,12 +254,12 @@
             <div class="exp-company">University of Illinois, Chicago</div>
             <div class="exp-period">Dec 2024 – Present</div>
           </div>
-          <div class="exp-content">
+          <div>
             <div class="exp-role">Graduate Research Assistant — Data Engineer</div>
             <ul class="exp-bullets">
-              <li>Architected ETL pipelines using Python/SQL reducing weekly reporting from <span class="highlight">5 hours to 1 hour</span>.</li>
-              <li>Established centralized PostgreSQL database consolidating <span class="highlight">$450K+</span> in fragmented project budgets.</li>
-              <li>Deployed Airflow workflows enabling real-time Power BI dashboards.</li>
+              <li>Architected automated ETL pipelines reducing weekly reporting overhead by 80%.</li>
+              <li>Consolidated $450K+ in fragmented financial data into a centralized PostgreSQL warehouse.</li>
+              <li>Enabled real-time executive visibility via Airflow and Power BI integration.</li>
             </ul>
           </div>
         </div>
@@ -466,29 +269,29 @@
             <div class="exp-company">Accenture</div>
             <div class="exp-period">Nov 2021 – Jul 2024</div>
           </div>
-          <div class="exp-content">
+          <div>
             <div class="exp-role">Data Engineer</div>
             <ul class="exp-bullets">
-              <li>Optimized demand forecasting accuracy by <span class="highlight">15%</span> through modular dbt models in Snowflake.</li>
-              <li>Reduced data processing latency by <span class="highlight">40%</span> with event-driven architecture and GCP Pub/Sub.</li>
-              <li>Cut cloud compute costs by <span class="highlight">25%</span> through advanced Snowflake tuning.</li>
+              <li>Engineered 50+ modular dbt models in Snowflake to boost SKU-level forecasting accuracy.</li>
+              <li>Decreased data latency by 40% using event-driven GCP architecture.</li>
+              <li>Reduced monthly cloud compute costs by 25% through advanced query optimization.</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div id="education" style="margin-top: 5rem;">
+      <div id="education" style="margin-top: 6rem;">
         <h3 class="index-sub-title">Education Index</h3>
-        <div class="edu-grid">
-          <div class="edu-card">
-            <div class="edu-degree">MS in Business Analytics</div>
-            <div class="edu-school">University of Illinois, Chicago</div>
-            <div class="edu-period">2024 – 2026</div>
+        <div class="grid-container">
+          <div class="card">
+            <div class="card-label">Master of Science</div>
+            <div class="card-title">Business Analytics</div>
+            <p class="card-text">University of Illinois, Chicago<br>2024 — 2026</p>
           </div>
-          <div class="edu-card">
-            <div class="edu-degree">BE in Electrical &amp; Electronics</div>
-            <div class="edu-school">Visvesvaraya Technological University</div>
-            <div class="edu-period">2017 – 2021</div>
+          <div class="card">
+            <div class="card-label">Bachelor of Engineering</div>
+            <div class="card-title">Electrical & Electronics</div>
+            <p class="card-text">Visvesvaraya Technological University<br>2017 — 2021</p>
           </div>
         </div>
       </div>
@@ -497,37 +300,36 @@
 
   <section id="projects">
     <div class="section-inner">
-      <div class="section-label">02. Innovation</div>
-      <h2 class="section-title">Things that I have built</h2>
+      <div class="section-label">02. Portfolio</div>
+      <h2 class="section-title">What I have built</h2>
       
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-num">01</div>
-          <h4 class="project-title">LLM Suicide Risk Analysis</h4>
-          <p class="project-desc">Built an LLM-based feature extraction pipeline transforming 225K+ mental health posts into structured clinical variables using RoBERTa models.</p>
+      <div class="grid-container">
+        <div class="card">
+          <div class="card-label">Machine Learning / NLP</div>
+          <div class="card-title">LLM Suicide Risk Analysis</div>
+          <p class="card-text">Extracted clinical variables from 225K+ posts using RoBERTa models to identify critical treatment gaps.</p>
         </div>
-
-        <div class="project-card">
-          <div class="project-num">02</div>
-          <h4 class="project-title">Agentic Supply Chain Optimizer</h4>
-          <p class="project-desc">Developed a PPO reinforcement learning model for inventory rebalancing across 50 nodes using Vertex AI and Gemini.</p>
+        <div class="card">
+          <div class="card-label">Reinforcement Learning</div>
+          <div class="card-title">Agentic Supply Chain Optimizer</div>
+          <p class="card-text">Developed a PPO model for warehouse rebalancing using Google Vertex AI and Gemini agents.</p>
         </div>
       </div>
 
-      <div id="skills" style="margin-top: 5rem;">
+      <div id="skills" style="margin-top: 6rem;">
         <h3 class="index-sub-title">Technical Skills Index</h3>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-cat">Languages</div>
-            <div class="skill-tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">Scala</span></div>
+        <div class="grid-container">
+          <div class="card">
+            <div class="card-label">Languages</div>
+            <div class="card-text">Python, SQL, Java, Scala, Bash</div>
           </div>
-          <div class="skill-card">
-            <div class="skill-cat">Engineering</div>
-            <div class="skill-tags"><span class="tag">Spark</span><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">Snowflake</span><span class="tag">Kafka</span></div>
+          <div class="card">
+            <div class="card-label">Data Engineering</div>
+            <div class="card-text">Apache Spark, Airflow, dbt, Snowflake, Kafka, Databricks</div>
           </div>
-          <div class="skill-card">
-            <div class="skill-cat">Cloud & Tools</div>
-            <div class="skill-tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span></div>
+          <div class="card">
+            <div class="card-label">Cloud & DevOps</div>
+            <div class="card-text">AWS, GCP, Docker, Kubernetes, Terraform</div>
           </div>
         </div>
       </div>
@@ -535,43 +337,33 @@
   </section>
 
   <section id="contact">
-    <div class="contact-inner">
-      <div>
-        <div class="section-label">03. Networking</div>
-        <div class="contact-big">Get In<br><span>Touch</span></div>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:krutikakulkarni0219@gmail.com" class="contact-link">
-          <span class="contact-link-icon">Email</span>
-          <span class="contact-link-val">krutikakulkarni0219@gmail.com</span>
-        </a>
-        <a href="https://linkedin.com/in/krutika-kulkarni" target="_blank" class="contact-link">
-          <span class="contact-link-icon">LinkedIn</span>
-          <span class="contact-link-val">linkedin.com/in/krutika-kulkarni</span>
-        </a>
-        <a href="https://github.com/krutika-kulkarni" target="_blank" class="contact-link">
-          <span class="contact-link-icon">GitHub</span>
-          <span class="contact-link-val">github.com/krutika-kulkarni</span>
-        </a>
+    <div class="section-inner">
+      <div class="contact-flex">
+        <div>
+          <div class="section-label">03. Contact</div>
+          <h2 class="contact-big">Get In<br><span>Touch</span></h2>
+        </div>
+        <div>
+          <a href="mailto:krutikakulkarni0219@gmail.com" class="contact-link">Email <span>→</span></a>
+          <a href="https://linkedin.com/in/krutika-kulkarni" target="_blank" class="contact-link">LinkedIn <span>→</span></a>
+          <a href="https://github.com/krutika-kulkarni" target="_blank" class="contact-link">GitHub <span>→</span></a>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="footer-text">© 2026 Krutika Kulkarni</div>
-    <div class="footer-text">Data Engineer · Chicago, IL</div>
+    <div>© 2026 Krutika Kulkarni</div>
+    <div>Chicago, IL</div>
   </footer>
 
   <script>
-    /* Initialize scroll observer for animations */
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-        }
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.exp-item, .skill-card, .project-card, .edu-card').forEach(el => observer.observe(el));
+    document.querySelectorAll('.exp-item, .card').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
