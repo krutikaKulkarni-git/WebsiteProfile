@@ -13,7 +13,7 @@
       --surface: #111118;
       --card: #16161f;
       --border: #ffffff0f;
-      --accent: #c8f06e;
+      --accent: #20c2bc; /* Updated to Teal */
       --accent2: #6ee4f0;
       --muted: #5a5a72;
       --text: #e8e8f0;
@@ -66,18 +66,19 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ─── HERO ─── */
+    /* ─── HERO (CENTERED) ─── */
     #hero {
       min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 3rem 5rem;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 0 3rem;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
     .hero-bg-text {
       position: absolute;
       top: 50%; left: 50%;
-      transform: translate(-50%, -52%);
+      transform: translate(-50%, -50%);
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(10rem, 22vw, 22rem);
       letter-spacing: -.02em;
@@ -86,6 +87,7 @@
       white-space: nowrap;
       pointer-events: none;
       user-select: none;
+      z-index: -1;
     }
     .hero-tag {
       font-family: 'DM Mono', monospace;
@@ -106,20 +108,22 @@
     }
     .hero-name span { color: var(--accent); }
     .hero-sub {
-      margin-top: 1.8rem;
+      margin: 1.8rem auto 0;
       font-family: 'DM Serif Display', serif;
       font-style: italic;
       font-size: clamp(1rem, 2.5vw, 1.5rem);
       color: var(--text-dim);
-      max-width: 600px;
+      max-width: 650px;
       line-height: 1.6;
       opacity: 0; animation: fadeUp .7s .5s forwards;
     }
     .hero-cta {
       margin-top: 2.5rem;
-      display: flex; gap: 1rem; flex-wrap: wrap;
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
       opacity: 0; animation: fadeUp .7s .65s forwards;
     }
+    
+    /* ─── BUTTONS ─── */
     .btn {
       padding: .75rem 1.8rem;
       font-family: 'DM Mono', monospace;
@@ -136,33 +140,17 @@
       color: #0a0a0f;
       border: none;
     }
-    .btn-primary:hover { background: #d6ff7a; transform: translateY(-2px); }
+    .btn-primary:hover { 
+      background: #28d9d2; 
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(32, 194, 188, 0.3);
+    }
     .btn-ghost {
       background: transparent;
       color: var(--text);
       border: 1px solid var(--border);
     }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-    .hero-stats {
-      position: absolute; right: 3rem; bottom: 5rem;
-      display: flex; flex-direction: column; gap: 1.5rem;
-      opacity: 0; animation: fadeLeft .7s .8s forwards;
-    }
-    .stat { text-align: right; }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      color: var(--accent2);
-      line-height: 1;
-    }
-    .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: .65rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
 
     /* ─── SECTIONS ─── */
     section { position: relative; z-index: 1; }
@@ -186,6 +174,16 @@
       line-height: 1;
       color: var(--text);
       margin-bottom: 3rem;
+    }
+    .index-sub-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: inline-block;
     }
 
     /* ─── EXPERIENCE ─── */
@@ -215,12 +213,6 @@
       letter-spacing: .1em;
       color: var(--muted);
     }
-    .exp-location {
-      font-family: 'DM Mono', monospace;
-      font-size: .65rem;
-      color: var(--muted);
-      margin-top: .2rem;
-    }
     .exp-role {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.6rem;
@@ -243,13 +235,9 @@
       font-size: .7rem;
       top: .2rem;
     }
-    .highlight {
-      color: var(--accent);
-      font-weight: 500;
-    }
+    .highlight { color: var(--accent); font-weight: 500; }
 
     /* ─── SKILLS ─── */
-    #skills { background: var(--bg); }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -264,7 +252,7 @@
       transition: opacity .4s, transform .4s, border-color .2s;
     }
     .skill-card.visible { opacity: 1; transform: none; }
-    .skill-card:hover { border-color: var(--accent2); }
+    .skill-card:hover { border-color: var(--accent); }
     .skill-cat {
       font-family: 'DM Mono', monospace;
       font-size: .65rem;
@@ -282,11 +270,10 @@
       border: 1px solid var(--border);
       border-radius: 2px;
       color: var(--text-dim);
-      letter-spacing: .05em;
     }
 
     /* ─── PROJECTS ─── */
-    #projects { background: var(--surface); }
+    #projects { background: var(--bg); }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -298,38 +285,26 @@
       border-radius: 4px;
       padding: 2rem;
       position: relative;
-      overflow: hidden;
       opacity: 0; transform: translateY(20px);
       transition: opacity .5s, transform .5s, border-color .2s;
     }
     .project-card.visible { opacity: 1; transform: none; }
     .project-card:hover { border-color: var(--accent); }
-    .project-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0; transition: opacity .2s;
-    }
-    .project-card:hover::before { opacity: 1; }
     .project-num {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 3rem;
       color: #ffffff06;
       position: absolute; top: 1rem; right: 1.5rem;
-      line-height: 1;
     }
     .project-title {
       font-family: 'DM Serif Display', serif;
       font-size: 1.3rem;
       color: var(--text);
       margin-bottom: .75rem;
-      line-height: 1.3;
     }
     .project-desc { font-size: .88rem; line-height: 1.7; color: var(--text-dim); }
-    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.25rem; }
 
     /* ─── EDUCATION ─── */
-    #education { background: var(--bg); }
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .edu-card {
       background: var(--card);
@@ -343,7 +318,6 @@
     .edu-degree {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.5rem;
-      letter-spacing: .03em;
       color: var(--accent);
       margin-bottom: .4rem;
     }
@@ -351,26 +325,10 @@
       font-family: 'DM Serif Display', serif;
       font-size: 1rem;
       color: var(--text);
-      margin-bottom: .3rem;
-    }
-    .edu-period {
-      font-family: 'DM Mono', monospace;
-      font-size: .65rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-    }
-    .edu-courses {
-      margin-top: 1rem;
-      font-size: .82rem;
-      color: var(--text-dim);
-      line-height: 1.6;
     }
 
     /* ─── CONTACT ─── */
-    #contact {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-    }
+    #contact { background: var(--surface); border-top: 1px solid var(--border); }
     .contact-inner {
       max-width: 1200px; margin: 0 auto;
       padding: 6rem 3rem;
@@ -390,43 +348,28 @@
       padding: 1rem 1.25rem;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 4px;
       transition: border-color .2s, transform .2s;
     }
     .contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
     .contact-link-icon {
       font-family: 'DM Mono', monospace;
       font-size: .7rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
       color: var(--accent2);
       min-width: 60px;
+      text-transform: uppercase;
     }
-    .contact-link-val {
-      font-family: 'DM Mono', monospace;
-      font-size: .78rem;
-      color: var(--text-dim);
-    }
+    .contact-link-val { font-family: 'DM Mono', monospace; font-size: .78rem; color: var(--text-dim); }
 
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .footer-text {
-      font-family: 'DM Mono', monospace;
-      font-size: .65rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-    }
+    .footer-text { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--muted); }
 
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: none; }
-    }
-    @keyframes fadeLeft {
-      from { opacity: 0; transform: translateX(20px); }
       to { opacity: 1; transform: none; }
     }
 
@@ -434,74 +377,54 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .section-inner { padding: 4rem 1.5rem; }
-      #hero { padding: 0 1.5rem 4rem; }
-      .hero-stats { display: none; }
+      #hero { padding: 0 1.5rem; }
       .exp-item { grid-template-columns: 1fr; gap: 1rem; }
       .edu-grid { grid-template-columns: 1fr; }
       .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-      footer { flex-direction: column; gap: .5rem; text-align: center; padding: 1rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">KK</div>
     <div class="nav-links">
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
+      <a href="#experience">Work Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#skills">Technical Skills</a>
       <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Reach Out</a>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-bg-text">DATA</div>
     <div class="hero-tag">Data Engineer &amp; Analytics Engineer</div>
     <div class="hero-name">Krutika<br><span>Kulkarni</span></div>
     <p class="hero-sub">Building robust data pipelines, scalable cloud infrastructure, and decision-grade analytics that move the needle.</p>
     <div class="hero-cta">
-      <a href="#experience" class="btn btn-primary">View My Work</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">80%</div>
-        <div class="stat-label">Efficiency Gain</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">99.9%</div>
-        <div class="stat-label">Data Reliability</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
+      <a href="#experience" class="btn btn-primary">Where I have worked</a>
+      <a href="#projects" class="btn btn-ghost">Things I have built</a>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-inner">
-      <div class="section-label">Where I've Worked</div>
-      <div class="section-title">Experience</div>
+      <div class="section-label">01. Professional History</div>
+      <h2 class="section-title">Where I have worked</h2>
+      
       <div class="exp-grid">
-
         <div class="exp-item">
           <div class="exp-meta">
             <div class="exp-company">University of Illinois, Chicago</div>
             <div class="exp-period">Dec 2024 – Present</div>
-            <div class="exp-location">Chicago, IL</div>
           </div>
           <div class="exp-content">
             <div class="exp-role">Graduate Research Assistant — Data Engineer</div>
             <ul class="exp-bullets">
-              <li>Architected ETL pipelines using Python/SQL automating project budget and cost data ingestion, reducing weekly reporting from <span class="highlight">5 hours to 1 hour</span> (80% efficiency gain).</li>
-              <li>Established centralized PostgreSQL database consolidating <span class="highlight">$450K+</span> in fragmented project budgets and procurement data, eliminating manual reconciliation errors.</li>
-              <li>Deployed Airflow workflows with Git version control enabling real-time Power BI dashboards, accelerating monthly financial close by one day and freeing <span class="highlight">6 hours</span> for strategic analysis.</li>
+              <li>Architected ETL pipelines using Python/SQL reducing weekly reporting from <span class="highlight">5 hours to 1 hour</span>.</li>
+              <li>Established centralized PostgreSQL database consolidating <span class="highlight">$450K+</span> in fragmented project budgets.</li>
+              <li>Deployed Airflow workflows enabling real-time Power BI dashboards.</li>
             </ul>
           </div>
         </div>
@@ -510,137 +433,85 @@
           <div class="exp-meta">
             <div class="exp-company">Accenture</div>
             <div class="exp-period">Nov 2021 – Jul 2024</div>
-            <div class="exp-location">Bangalore, India</div>
           </div>
           <div class="exp-content">
             <div class="exp-role">Data Engineer</div>
             <ul class="exp-bullets">
-              <li>Optimized demand forecasting accuracy by <span class="highlight">15%</span> through modular dbt models engineering 50+ time-series features from Snowflake transaction data for SKU-level inventory planning.</li>
-              <li>Reduced data processing latency by <span class="highlight">40%</span> implementing event-driven architecture with Python and GCP Pub/Sub for automated warehouse refreshes on POS data arrival.</li>
-              <li>Improved data reliability to <span class="highlight">99.9%</span> architecting comprehensive dbt testing framework preventing inaccurate data from reaching executive dashboards.</li>
-              <li>Decreased manual reporting overhead by <span class="highlight">120 hours monthly</span> refactoring legacy SQL scripts into decoupled Apache Airflow DAGs with automated retry logic and alerting.</li>
-              <li>Cut cloud compute costs by <span class="highlight">25%</span> through advanced Snowflake tuning (clustering keys, partition pruning) on multi-terabyte tables.</li>
-              <li>Accelerated production release cycles by <span class="highlight">50%</span> integrating GitHub Actions CI/CD pipelines with Docker automating model validation and deployment across all environments.</li>
+              <li>Optimized demand forecasting accuracy by <span class="highlight">15%</span> through modular dbt models in Snowflake.</li>
+              <li>Reduced data processing latency by <span class="highlight">40%</span> with event-driven architecture and GCP Pub/Sub.</li>
+              <li>Cut cloud compute costs by <span class="highlight">25%</span> through advanced Snowflake tuning.</li>
             </ul>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-inner">
-      <div class="section-label">What I Work With</div>
-      <div class="section-title">Technical Skills</div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-cat">Programming &amp; Scripting</div>
-          <div class="skill-tags">
-            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">Bash</span><span class="tag">Scala</span>
+      <div id="education" style="margin-top: 6rem;">
+        <h3 class="index-sub-title">Education Index</h3>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <div class="edu-degree">MS in Business Analytics</div>
+            <div class="edu-school">University of Illinois, Chicago</div>
+            <div class="edu-period">2024 – 2026</div>
           </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-cat">Cloud Technologies</div>
-          <div class="skill-tags">
-            <span class="tag">AWS S3</span><span class="tag">Lambda</span><span class="tag">EC2</span><span class="tag">Azure Synapse</span><span class="tag">Data Factory</span><span class="tag">GCP BigQuery</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-cat">Data Engineering &amp; ETL</div>
-          <div class="skill-tags">
-            <span class="tag">Apache Spark</span><span class="tag">Kafka</span><span class="tag">Airflow</span><span class="tag">Snowflake</span><span class="tag">dbt</span><span class="tag">Databricks</span><span class="tag">Flink</span><span class="tag">Hadoop</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-cat">Databases</div>
-          <div class="skill-tags">
-            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">DynamoDB</span><span class="tag">Oracle</span><span class="tag">SQL Server</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-cat">Tools &amp; Frameworks</div>
-          <div class="skill-tags">
-            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Jenkins</span><span class="tag">Git</span><span class="tag">REST APIs</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-cat">Analytics &amp; BI</div>
-          <div class="skill-tags">
-            <span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">Looker</span><span class="tag">Google Data Studio</span>
+          <div class="edu-card">
+            <div class="edu-degree">BE in Electrical &amp; Electronics</div>
+            <div class="edu-school">Visvesvaraya Technological University</div>
+            <div class="edu-period">2017 – 2021</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-inner">
-      <div class="section-label">Things I've Built</div>
-      <div class="section-title">Projects</div>
+      <div class="section-label">02. Portfolio</div>
+      <h2 class="section-title">Things that I have built</h2>
+      
       <div class="projects-grid">
-
         <div class="project-card">
           <div class="project-num">01</div>
-          <div class="project-title">LLM-Driven Suicide Risk Analysis</div>
-          <p class="project-desc">Built an LLM-based feature extraction pipeline transforming 225K+ unstructured mental health posts into 28 structured clinical variables aligned with established frameworks (C-SSRS, SITBI, DSM-5). Conducted statistical analysis on 84K+ users using RoBERTa emotion models, discovering significant planning-attempt associations and an 83% treatment gap among at-risk individuals.</p>
-          <div class="project-tags">
-            <span class="tag">LLM</span><span class="tag">RoBERTa</span><span class="tag">NLP</span><span class="tag">Python</span><span class="tag">Statistical Analysis</span>
-          </div>
+          <div class="project-title">LLM Suicide Risk Analysis</div>
+          <p class="project-desc">Built an LLM-based feature extraction pipeline transforming 225K+ mental health posts into structured clinical variables using RoBERTa models.</p>
         </div>
 
         <div class="project-card">
           <div class="project-num">02</div>
           <div class="project-title">Agentic Supply Chain Optimizer</div>
-          <p class="project-desc">Developed a PPO reinforcement learning model to optimize inventory rebalancing across a 50-node warehouse network, minimizing shipping costs, stockout penalties, and holding costs simultaneously. Built an agentic supply chain system integrating Google Vertex AI Gemini with a custom RL environment for natural language disruption analysis and automated recommendations.</p>
-          <div class="project-tags">
-            <span class="tag">Reinforcement Learning</span><span class="tag">Vertex AI</span><span class="tag">Gemini</span><span class="tag">Python</span><span class="tag">Supply Chain</span>
+          <p class="project-desc">Developed a PPO reinforcement learning model for inventory rebalancing across 50 nodes using Vertex AI and Gemini.</p>
+        </div>
+      </div>
+
+      <div id="skills" style="margin-top: 6rem;">
+        <h3 class="index-sub-title">Technical Skills Index</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-cat">Languages</div>
+            <div class="skill-tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">Scala</span></div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-cat">Engineering</div>
+            <div class="skill-tags"><span class="tag">Spark</span><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">Snowflake</span><span class="tag">Kafka</span></div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-cat">Cloud & Tools</div>
+            <div class="skill-tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span></div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-inner">
-      <div class="section-label">Academic Background</div>
-      <div class="section-title">Education</div>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-degree">MS in Business Analytics</div>
-          <div class="edu-school">University of Illinois, Chicago</div>
-          <div class="edu-period">Aug 2024 – May 2026</div>
-          <div class="edu-courses">Coursework: Advanced Database, Machine Learning, Intro to AI &amp; Cloud Computing, Data Mining, Visualization.</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-degree">BE in Electrical &amp; Electronics Engineering</div>
-          <div class="edu-school">Visvesvaraya Technological University</div>
-          <div class="edu-period">Jul 2017 – Aug 2021</div>
-          <div class="edu-courses">Bangalore, India</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
       <div>
-        <div class="section-label">Let's Connect</div>
+        <div class="section-label">03. Networking</div>
         <div class="contact-big">Get In<br><span>Touch</span></div>
       </div>
       <div class="contact-links">
         <a href="mailto:krutikakulkarni0219@gmail.com" class="contact-link">
           <span class="contact-link-icon">Email</span>
           <span class="contact-link-val">krutikakulkarni0219@gmail.com</span>
-        </a>
-        <a href="tel:+18728990529" class="contact-link">
-          <span class="contact-link-icon">Phone</span>
-          <span class="contact-link-val">(312) 498-3051</span>
         </a>
         <a href="https://linkedin.com/in/krutika-kulkarni" target="_blank" class="contact-link">
           <span class="contact-link-icon">LinkedIn</span>
@@ -650,21 +521,16 @@
           <span class="contact-link-icon">GitHub</span>
           <span class="contact-link-val">github.com/krutika-kulkarni</span>
         </a>
-        <a class="contact-link">
-          <span class="contact-link-icon">Location</span>
-          <span class="contact-link-val">Chicago, Illinois</span>
-        </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="footer-text">© 2025 Krutika Kulkarni</div>
+    <div class="footer-text">© 2026 Krutika Kulkarni</div>
     <div class="footer-text">Data Engineer · Chicago, IL</div>
   </footer>
 
   <script>
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
@@ -672,7 +538,6 @@
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.exp-item, .skill-card, .project-card, .edu-card').forEach(el => observer.observe(el));
   </script>
 </body>
