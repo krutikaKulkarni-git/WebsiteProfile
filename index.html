@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krutika Kulkarni — Data Engineer</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Mono&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Mono&display=swap" rel="stylesheet"/>
   
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      /* YOUR COLOR PALETTE */
       --bg: #2E3047;         
       --surface: #43455C;    
       --card: #383a54;       
@@ -21,8 +22,9 @@
       --text-dim: #cad3dc;
       --muted: #8c92ac;
       
-      --font-main: 'Josefin Sans', sans-serif;
-      --font-serif: 'Crimson Pro', serif; /* Sabon look-alike */
+      /* UPDATED FONTS */
+      --font-main: 'Poppins', sans-serif;
+      --font-serif: 'Crimson Pro', serif; 
       --font-bebas: 'Bebas Neue', sans-serif;
       --font-mono: 'DM Mono', monospace;
     }
@@ -34,12 +36,13 @@
       color: var(--text);
       font-family: var(--font-main);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
     /* ─── INDEX (UPPER RIGHT) ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: flex-end; /* Align right */
+      display: flex; align-items: center; justify-content: flex-end;
       padding: 1.5rem 3rem;
       background: linear-gradient(to bottom, #2e3047ee, transparent);
       backdrop-filter: blur(8px);
@@ -47,10 +50,10 @@
     .nav-links { display: flex; gap: 1.8rem; }
     .nav-links a {
       font-family: var(--font-main);
-      font-size: .75rem;
-      font-weight: 400;
+      font-size: .7rem;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--text-dim);
       text-decoration: none;
       transition: color .2s;
@@ -72,10 +75,13 @@
       color: var(--accent);
       margin-bottom: 1rem;
     }
+    
+    /* MODIFIED: Name in Poppins, single line */
     .hero-name {
-      font-family: var(--font-bebas);
-      font-size: clamp(3.5rem, 12vw, 9rem);
-      line-height: 0.85;
+      font-family: var(--font-main);
+      font-weight: 700;
+      font-size: clamp(2.5rem, 8vw, 6.5rem);
+      letter-spacing: -0.02em;
       color: var(--text);
       white-space: nowrap;
       margin-bottom: 1.5rem;
@@ -102,10 +108,10 @@
     .chapter-link {
       font-family: var(--font-main);
       font-size: 1.1rem;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text);
       text-decoration: none;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
       transition: all 0.3s;
       padding: 0.5rem 1rem;
       border-bottom: 1px solid transparent;
@@ -123,14 +129,14 @@
       padding: 8rem 3rem;
     }
     .section-title {
-      font-family: var(--font-bebas);
+      font-family: var(--font-bebas); /* Keeps Bebas for large impact titles */
       font-size: clamp(3rem, 7vw, 5.5rem);
       margin-bottom: 3rem;
       color: var(--text);
     }
     .index-sub-title {
       font-family: var(--font-main);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--accent);
       margin-top: 5rem;
@@ -139,17 +145,18 @@
       letter-spacing: 0.1em;
     }
 
-    /* ─── EXPERIENCE & CARDS ─── */
+    /* ─── EXPERIENCE ─── */
     #experience { background: var(--surface); }
     .exp-item {
       display: grid; grid-template-columns: 1fr 3fr; gap: 3rem;
       padding: 2.5rem 0; border-bottom: 1px solid var(--border);
     }
-    .exp-role { font-family: var(--font-main); font-weight: 600; font-size: 1.4rem; color: var(--accent); }
+    .exp-role { font-family: var(--font-main); font-weight: 600; font-size: 1.3rem; color: var(--accent); }
     .exp-bullets { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.6; color: var(--text-dim); list-style: none; }
     .exp-bullets li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; }
     .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
 
+    /* ─── CARDS ─── */
     .grid-container {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
     }
@@ -157,7 +164,7 @@
       background: var(--card); padding: 2.2rem; border: 1px solid var(--border); transition: 0.3s;
     }
     .card:hover { border-color: var(--accent); transform: translateY(-5px); }
-    .card-title { font-family: var(--font-main); font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; }
+    .card-title { font-family: var(--font-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; }
     .card-text { font-family: var(--font-serif); font-size: 1rem; color: var(--text-dim); line-height: 1.5; }
 
     /* ─── CONTACT ─── */
@@ -165,14 +172,15 @@
     .contact-big { font-family: var(--font-bebas); font-size: clamp(4rem, 15vw, 10rem); color: var(--text); line-height: 0.9; }
     .contact-big span { color: var(--accent); }
     .contact-links { display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; }
-    .contact-links a { font-family: var(--font-main); text-decoration: none; color: var(--accent); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; }
+    .contact-links a { font-family: var(--font-main); text-decoration: none; color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85rem; }
 
     footer { padding: 3rem; font-family: var(--font-mono); font-size: .65rem; color: var(--muted); border-top: 1px solid var(--border); text-align: center; }
 
     @media (max-width: 768px) {
       nav { justify-content: center; padding: 1rem; }
       .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.6rem; }
+      .nav-links a { font-size: 0.55rem; }
+      .hero-name { white-space: normal; line-height: 1.1; }
       .exp-item { grid-template-columns: 1fr; gap: 1rem; }
     }
   </style>
@@ -208,8 +216,8 @@
       <div class="exp-grid">
         <div class="exp-item">
           <div class="exp-meta">
-            <strong style="font-size: 1.1rem;">UIC</strong><br>
-            <span class="exp-period">2024 – Present</span>
+            <strong style="font-family: var(--font-main); font-weight: 600;">UIC</strong><br>
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2024 – Present</span>
           </div>
           <div>
             <div class="exp-role">Graduate Research Assistant</div>
@@ -221,8 +229,8 @@
         </div>
         <div class="exp-item">
           <div class="exp-meta">
-            <strong style="font-size: 1.1rem;">Accenture</strong><br>
-            <span class="exp-period">2021 – 2024</span>
+            <strong style="font-family: var(--font-main); font-weight: 600;">Accenture</strong><br>
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2021 – 2024</span>
           </div>
           <div>
             <div class="exp-role">Data Engineer</div>
