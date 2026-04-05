@@ -11,18 +11,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* YOUR COLOR PALETTE */
       --bg: #2E3047;         
       --surface: #43455C;    
       --card: #383a54;       
       --accent: #3BBA9C;     
       --border: #ffffff0a;
-      
       --text: #ffffff;
       --text-dim: #cad3dc;
       --muted: #8c92ac;
       
-      /* UPDATED FONTS */
       --font-main: 'Poppins', sans-serif;
       --font-serif: 'Crimson Pro', serif; 
       --font-bebas: 'Bebas Neue', sans-serif;
@@ -30,14 +27,7 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-main);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-main); overflow-x: hidden; line-height: 1.6; }
 
     /* ─── INDEX (UPPER RIGHT) ─── */
     nav {
@@ -49,120 +39,50 @@
     }
     .nav-links { display: flex; gap: 1.8rem; }
     .nav-links a {
-      font-family: var(--font-main);
-      font-size: .7rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-dim);
-      text-decoration: none;
-      transition: color .2s;
+      font-family: var(--font-main); font-size: .7rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim);
+      text-decoration: none; transition: color .2s;
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ─── HERO (CENTERED CHAPTERS) ─── */
+    /* ─── HERO ─── */
     #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      padding: 0 3rem;
-      text-align: center;
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 0 3rem; text-align: center;
     }
-    .hero-tag {
-      font-family: var(--font-mono);
-      font-size: .7rem;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    
-    /* MODIFIED: Name in Poppins, single line */
-    .hero-name {
-      font-family: var(--font-main);
-      font-weight: 700;
-      font-size: clamp(2.5rem, 8vw, 6.5rem);
-      letter-spacing: -0.02em;
-      color: var(--text);
-      white-space: nowrap;
-      margin-bottom: 1.5rem;
-    }
+    .hero-tag { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-name { font-family: var(--font-main); font-weight: 700; font-size: clamp(2.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; color: var(--text); white-space: nowrap; margin-bottom: 1.5rem; }
     .hero-name span { color: var(--accent); }
-    
-    .hero-sub {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-      color: var(--text-dim);
-      max-width: 800px;
-      line-height: 1.5;
-      margin-bottom: 3rem;
-    }
+    .hero-sub { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--text-dim); max-width: 800px; line-height: 1.5; margin-bottom: 3rem; }
+    .hero-cta-group { display: flex; flex-direction: column; gap: 1.2rem; align-items: center; }
+    .chapter-link { font-family: var(--font-main); font-size: 1.1rem; font-weight: 400; color: var(--text); text-decoration: none; letter-spacing: 0.02em; transition: all 0.3s; padding: 0.5rem 1rem; border-bottom: 1px solid transparent; }
+    .chapter-link:hover { color: var(--accent); border-bottom: 1px solid var(--accent); transform: translateY(-2px); }
 
-    .hero-cta-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      align-items: center;
-    }
+    /* ─── SECTIONS ─── */
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 8rem 3rem; }
+    .section-title { font-family: var(--font-bebas); font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: 3rem; color: var(--text); }
     
-    .chapter-link {
-      font-family: var(--font-main);
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: all 0.3s;
-      padding: 0.5rem 1rem;
-      border-bottom: 1px solid transparent;
+    /* Category Labels */
+    .category-header {
+      font-family: var(--font-main); font-size: 0.9rem; font-weight: 600; color: var(--accent);
+      margin-top: 3rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.15em;
+      display: flex; align-items: center; gap: 1rem;
     }
-    .chapter-link:hover {
-      color: var(--accent);
-      border-bottom: 1px solid var(--accent);
-      transform: translateY(-2px);
-    }
+    .category-header::after { content: ""; height: 1px; flex-grow: 1; background: var(--border); }
 
-    /* ─── SECTION STYLING ─── */
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 8rem 3rem;
-    }
-    .section-title {
-      font-family: var(--font-bebas); /* Keeps Bebas for large impact titles */
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      margin-bottom: 3rem;
-      color: var(--text);
-    }
-    .index-sub-title {
-      font-family: var(--font-main);
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-top: 5rem;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
+    .index-sub-title { font-family: var(--font-main); font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-top: 5rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
     /* ─── EXPERIENCE ─── */
     #experience { background: var(--surface); }
-    .exp-item {
-      display: grid; grid-template-columns: 1fr 3fr; gap: 3rem;
-      padding: 2.5rem 0; border-bottom: 1px solid var(--border);
-    }
+    .exp-item { display: grid; grid-template-columns: 1fr 3fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
     .exp-role { font-family: var(--font-main); font-weight: 600; font-size: 1.3rem; color: var(--accent); }
     .exp-bullets { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.6; color: var(--text-dim); list-style: none; }
     .exp-bullets li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; }
     .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
 
     /* ─── CARDS ─── */
-    .grid-container {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
-    }
-    .card {
-      background: var(--card); padding: 2.2rem; border: 1px solid var(--border); transition: 0.3s;
-    }
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .card { background: var(--card); padding: 2.2rem; border: 1px solid var(--border); transition: 0.3s; height: 100%; }
     .card:hover { border-color: var(--accent); transform: translateY(-5px); }
     .card-title { font-family: var(--font-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.8rem; }
     .card-text { font-family: var(--font-serif); font-size: 1rem; color: var(--text-dim); line-height: 1.5; }
@@ -179,7 +99,6 @@
     @media (max-width: 768px) {
       nav { justify-content: center; padding: 1rem; }
       .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.55rem; }
       .hero-name { white-space: normal; line-height: 1.1; }
       .exp-item { grid-template-columns: 1fr; gap: 1rem; }
     }
@@ -201,7 +120,6 @@
     <div class="hero-tag">Data & Analytics Engineer</div>
     <h1 class="hero-name">Krutika <span>Kulkarni</span></h1>
     <p class="hero-sub">Architecting high-performance data infrastructure and actionable analytics to drive intelligent decision-making.</p>
-    
     <div class="hero-cta-group">
       <a href="#experience" class="chapter-link">Where I have worked</a>
       <a href="#projects" class="chapter-link">What I have built</a>
@@ -212,13 +130,9 @@
   <section id="experience">
     <div class="section-inner">
       <h2 class="section-title">Where I have worked</h2>
-      
       <div class="exp-grid">
         <div class="exp-item">
-          <div class="exp-meta">
-            <strong style="font-family: var(--font-main); font-weight: 600;">UIC</strong><br>
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2024 – Present</span>
-          </div>
+          <div class="exp-meta"><strong style="font-family: var(--font-main); font-weight: 600;">UIC</strong><br><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2024 – Present</span></div>
           <div>
             <div class="exp-role">Graduate Research Assistant</div>
             <ul class="exp-bullets">
@@ -228,10 +142,7 @@
           </div>
         </div>
         <div class="exp-item">
-          <div class="exp-meta">
-            <strong style="font-family: var(--font-main); font-weight: 600;">Accenture</strong><br>
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2021 – 2024</span>
-          </div>
+          <div class="exp-meta"><strong style="font-family: var(--font-main); font-weight: 600;">Accenture</strong><br><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2021 – 2024</span></div>
           <div>
             <div class="exp-role">Data Engineer</div>
             <ul class="exp-bullets">
@@ -245,14 +156,8 @@
       <div id="education">
         <h3 class="index-sub-title">Education Index</h3>
         <div class="grid-container">
-          <div class="card">
-            <div class="card-title">MS in Business Analytics</div>
-            <p class="card-text">University of Illinois, Chicago<br>2024 — 2026</p>
-          </div>
-          <div class="card">
-            <div class="card-title">BE in Electrical Engineering</div>
-            <p class="card-text">Visvesvaraya Technological University<br>2017 — 2021</p>
-          </div>
+          <div class="card"><div class="card-title">MS in Business Analytics</div><p class="card-text">University of Illinois, Chicago<br>2024 — 2026</p></div>
+          <div class="card"><div class="card-title">BE in Electrical Engineering</div><p class="card-text">Visvesvaraya Technological University<br>2017 — 2021</p></div>
         </div>
       </div>
     </div>
@@ -262,32 +167,48 @@
     <div class="section-inner">
       <h2 class="section-title">What I have built</h2>
       
+      <div class="category-header">AI Projects</div>
+      <div class="grid-container">
+        <div class="card">
+          <div class="card-title">Agentic Supply Chain Optimizer</div>
+          <p class="card-text">Developed a PPO reinforcement learning model for inventory rebalancing using Google Vertex AI and Gemini agents for natural language disruption analysis.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Autonomous Web Navigator</div>
+          <p class="card-text">Building a specialized AI agent designed to navigate complex web structures autonomously for research and data extraction.</p>
+        </div>
+      </div>
+
+      <div class="category-header">ML Projects</div>
       <div class="grid-container">
         <div class="card">
           <div class="card-title">LLM Suicide Risk Analysis</div>
-          <p class="card-text">Extracted clinical variables from 225K+ posts using RoBERTa models to identify critical treatment gaps.</p>
+          <p class="card-text">Built an LLM-based feature extraction pipeline transforming 225K+ posts into structured variables using RoBERTa emotion models.</p>
         </div>
         <div class="card">
-          <div class="card-title">Agentic Supply Chain Optimizer</div>
-          <p class="card-text">Developed a PPO model for warehouse rebalancing using Google Vertex AI and Gemini agents.</p>
+          <div class="card-title">Demand Forecasting Engine</div>
+          <p class="card-text">Engineered time-series features for SKU-level inventory planning using modular dbt models and Snowflake data.</p>
+        </div>
+      </div>
+
+      <div class="category-header">Visualization</div>
+      <div class="grid-container">
+        <div class="card">
+          <div class="card-title">Budgetary Insights Dashboard</div>
+          <p class="card-text">Created real-time Power BI dashboards for financial tracking, accelerating monthly financial close by one full day.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Supply Chain Disruption Tracker</div>
+          <p class="card-text">Visualizing node-level warehouse stockouts and holding costs to provide executive-level supply chain transparency.</p>
         </div>
       </div>
 
       <div id="skills">
         <h3 class="index-sub-title">Technical Skills Index</h3>
         <div class="grid-container">
-          <div class="card">
-            <div class="card-title">Languages</div>
-            <p class="card-text">Python, SQL, Java, Scala, Bash</p>
-          </div>
-          <div class="card">
-            <div class="card-title">Engineering</div>
-            <p class="card-text">Spark, Airflow, dbt, Snowflake, Kafka, Databricks</p>
-          </div>
-          <div class="card">
-            <div class="card-title">Cloud</div>
-            <p class="card-text">AWS, GCP, Docker, Kubernetes, Terraform</p>
-          </div>
+          <div class="card"><div class="card-title">Languages</div><p class="card-text">Python, SQL, Java, Scala, Bash</p></div>
+          <div class="card"><div class="card-title">Engineering</div><p class="card-text">Spark, Airflow, dbt, Snowflake, Kafka, Databricks</p></div>
+          <div class="card"><div class="card-title">Cloud</div><p class="card-text">AWS, GCP, Docker, Kubernetes, Terraform</p></div>
         </div>
       </div>
     </div>
@@ -299,7 +220,7 @@
       <div class="contact-links">
         <a href="mailto:krutikakulkarni0219@gmail.com">Email</a>
         <a href="https://linkedin.com/in/krutika-kulkarni">LinkedIn</a>
-        <a href="https://github.com/krutika-kulkarni">GitHub</a>
+        <a href="https://github.com/krutikakulkarni-git">GitHub</a>
       </div>
     </div>
   </section>
