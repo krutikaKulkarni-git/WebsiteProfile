@@ -143,22 +143,31 @@
       <h2 class="section-title">Where I have worked</h2>
       <div class="exp-grid">
         <div class="exp-item">
-          <div class="exp-meta"><strong style="font-family: var(--font-main); font-weight: 600;">UIC</strong><br><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2024 – Present</span></div>
+          <div class="exp-meta"><strong style="font-family: var(--font-main); font-weight: 600;">University of Illinois, Chicago</strong><br><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">Dec 2024 – Present</span><br><span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted);">Chicago, IL</span></div>
           <div>
-            <div class="exp-role">Graduate Research Assistant</div>
+            <div class="exp-role">Graduate Research Assistant (Data Engineer)</div>
             <ul class="exp-bullets">
-              <li>Architected automated ETL pipelines reducing weekly reporting overhead by 80%.</li>
-              <li>Consolidated $450K+ in fragmented financial data into a centralized warehouse.</li>
+              <li>Architected Python/SQL ETL pipelines utilizing Kahua REST APIs to automate ingestion of capital project budgets and asset data, reducing operational reporting cycles from 5 hours to 1 hour (80% efficiency gain).</li>
+              <li>Established a centralized PostgreSQL consolidating $450K+ in fragmented budgets, vendor data, and asset specifications from Kahua and FIM Manager, eliminating manual reconciliation between construction and facility management teams.</li>
+              <li>Deployed Airflow workflows with Git version control to automate financial data refreshes, powering real-time Power BI dashboards that accelerated month-end close by one day and tracked 8+ project cost KPIs across construction operations.</li>
             </ul>
           </div>
         </div>
         <div class="exp-item">
-          <div class="exp-meta"><strong style="font-family: var(--font-main); font-weight: 600;">Accenture</strong><br><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">2021 – 2024</span></div>
+          <div class="exp-meta"><strong style="font-family: var(--font-main); font-weight: 600;">Accenture</strong><br><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);">Nov 2021 – Jul 2024</span><br><span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted);">Bangalore, India</span></div>
           <div>
             <div class="exp-role">Data Engineer</div>
+            <p style="font-family: var(--font-main); font-size: 0.8rem; font-weight: 600; color: var(--text); margin: 1rem 0 0.5rem; letter-spacing: 0.05em;">Real-Time Data Streaming &amp; Warehouse Optimization <span style="font-weight: 400; color: var(--muted);">(PySpark, GCP Pub/Sub, Snowflake, dbt)</span></p>
             <ul class="exp-bullets">
-              <li>Engineered 50+ dbt models in Snowflake to boost forecasting accuracy.</li>
-              <li>Reduced data latency by 40% using event-driven GCP architecture.</li>
+              <li>Engineered 50+ modular dbt models on Snowflake and PySpark transformation scripts to process 100K+ product records into SKU-level demand forecasts, improving forecasting accuracy by 15% through high-scale feature engineering.</li>
+              <li>Architected an event-driven GCP Pub/Sub pipeline with REST API integrations to automate warehouse inventory refreshes across 15+ data sources, reducing data latency by 40% and enabling near-real-time operational visibility.</li>
+              <li>Optimized multi-terabyte Snowflake data warehouse tables for 3+ high-traffic reporting workloads using clustering keys and partition pruning, reducing cloud compute costs by 25%.</li>
+            </ul>
+            <p style="font-family: var(--font-main); font-size: 0.8rem; font-weight: 600; color: var(--text); margin: 1.5rem 0 0.5rem; letter-spacing: 0.05em;">ETL Modernization &amp; Data Reliability Framework <span style="font-weight: 400; color: var(--muted);">(Apache Airflow, dbt, GitHub Actions, Docker, SQL)</span></p>
+            <ul class="exp-bullets">
+              <li>Migrated 30+ legacy ETL scripts to decoupled Apache Airflow DAGs with CI/CD pipelines, eliminating fragile manual handoffs and cutting reporting overhead by 120 hours monthly across the analytics team.</li>
+              <li>Designed a comprehensive dbt testing framework enforcing schema, relationship, and business logic validations across 50+ models, improving pipeline data reliability to 99.9% and reducing data quality incidents in production.</li>
+              <li>Accelerated production release cycles by 50% by integrating GitHub Actions CI/CD pipelines with Docker, enabling automated model validation and consistent deployments across dev, staging, and production environments.</li>
             </ul>
           </div>
         </div>
@@ -167,8 +176,15 @@
       <div id="education">
         <h3 class="index-sub-title">Education Index</h3>
         <div class="grid-container">
-          <div class="card"><div class="card-title">MS in Business Analytics</div><p class="card-text">University of Illinois, Chicago<br>2024 — 2026</p></div>
-          <div class="card"><div class="card-title">BE in Electrical Engineering</div><p class="card-text">Visvesvaraya Technological University<br>2017 — 2021</p></div>
+          <div class="card"><div class="card-title">MS in Business Analytics <span style="font-weight: 400; font-size: 0.95rem;">(Data Science Specialization)</span></div><p class="card-text">University of Illinois, Chicago<br>Aug 2024 — May 2026<br><span style="font-size: 0.88rem; color: var(--muted);">Coursework: Advanced Database, Machine Learning, Intro to AI and Cloud Computing, Data Mining, Visualization</span></p></div>
+          <div class="card"><div class="card-title">BE in Electrical and Electronics Engineering</div><p class="card-text">Visvesvaraya Technological University, Bangalore, India<br>Graduated Aug 2021<br><span style="font-size: 0.88rem; color: var(--muted);">Coursework: Data Structures and Algorithms, Statistics, Calculus, Probability, Automation and Robotics</span></p></div>
+        </div>
+      </div>
+
+      <div id="certifications">
+        <h3 class="index-sub-title">Certifications</h3>
+        <div class="grid-container">
+          <div class="card"><div class="card-title">AWS Certified Data Engineer Associate</div><p class="card-text">Amazon Web Services</p></div>
         </div>
       </div>
     </div>
@@ -217,9 +233,13 @@
       <div id="skills">
         <h3 class="index-sub-title">Technical Skills Index</h3>
         <div class="grid-container">
-          <div class="card"><div class="card-title">Languages</div><p class="card-text">Python, SQL, Java, Scala, Bash</p></div>
-          <div class="card"><div class="card-title">Engineering</div><p class="card-text">Spark, Airflow, dbt, Snowflake, Kafka, Databricks</p></div>
-          <div class="card"><div class="card-title">Cloud</div><p class="card-text">AWS, GCP, Docker, Kubernetes, Terraform</p></div>
+          <div class="card"><div class="card-title">Programming &amp; Scripting</div><p class="card-text">Python, SQL, Java, Bash, Scala, T-SQL, R</p></div>
+          <div class="card"><div class="card-title">Data Engineering &amp; ETL</div><p class="card-text">Apache Spark, PySpark, Airflow, dbt, Snowflake, Databricks, Kafka, Flink, Hadoop, Informatica</p></div>
+          <div class="card"><div class="card-title">Cloud Technologies</div><p class="card-text">AWS (S3, Lambda, EC2, EMR), Azure (Synapse, Data Factory, Blob Storage, DevOps, Microsoft Fabric), GCP (BigQuery, Pub/Sub)</p></div>
+          <div class="card"><div class="card-title">Database Technologies</div><p class="card-text">PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, DynamoDB, Redis, NoSQL</p></div>
+          <div class="card"><div class="card-title">Tools &amp; Frameworks</div><p class="card-text">Docker, Kubernetes, Terraform, Jenkins, Git, GitHub Actions, REST APIs, Prometheus</p></div>
+          <div class="card"><div class="card-title">Analytics &amp; Visualization</div><p class="card-text">Power BI, Tableau, Looker, Google Data Studio, DAX, Star Schema Modeling</p></div>
+          <div class="card"><div class="card-title">Other Skills</div><p class="card-text">Data Architecture, ETL/ELT Development, Pipeline Orchestration, Data Warehousing</p></div>
         </div>
       </div>
     </div>
@@ -241,7 +261,6 @@
   </footer>
 
   <script>
-    /* JavaScript for Collapsible Functionality */
     const coll = document.getElementsByClassName("category-btn");
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
