@@ -62,11 +62,21 @@
 
     #hero {
       min-height: 100vh;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
       padding: 7rem 3.5rem 4rem;
+      gap: 4rem;
       position: relative;
       overflow: hidden;
+    }
+    .hero-avatar {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,229,192,0.35);
+      object-fit: cover;
+      box-shadow: 0 0 40px rgba(0,229,192,0.12);
+      position: relative; z-index: 1;
     }
     .hero-bg-grid {
       position: absolute; inset: 0; z-index: 0;
@@ -320,6 +330,7 @@
 
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-avatar { display: none; }
       .hero-right { display: none; }
       .hero-stats { justify-content: center; }
       .hero-ctas { justify-content: center; }
@@ -377,6 +388,8 @@
       </div>
     </div>
   </div>
+
+  <img src="https://github.com/krutikakulkarni-git.png" alt="Krutika Kulkarni" class="hero-avatar"/>
 
 </section>
 
