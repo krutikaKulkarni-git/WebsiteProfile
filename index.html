@@ -208,9 +208,10 @@
     .exp-bullets { list-style: none; }
     .exp-bullets li {
       font-family: var(--font-serif); font-size: 1rem; color: var(--text-dim);
-      line-height: 1.65; padding-left: 0; margin-bottom: 0.7rem;
+      line-height: 1.65; padding-left: 1.5rem; margin-bottom: 0.7rem;
       position: relative;
     }
+    .exp-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 0.2rem; }
 
     #projects { padding: 6rem 3.5rem; background: var(--surface); }
     .projects-filter { display: flex; gap: 0.7rem; margin-bottom: 3rem; flex-wrap: wrap; }
@@ -282,12 +283,15 @@
       display: inline-flex; align-items: center; gap: 0.6rem;
       background: var(--card); border: 1px solid var(--border);
       padding: 1rem 1.5rem; margin-top: 2rem;
-      transition: 0.3s;
+      transition: 0.3s; text-decoration: none;
     }
     .cert-badge:hover { border-color: var(--amber); }
     .cert-badge .cert-icon { font-size: 1.2rem; }
-    .cert-badge .cert-name { font-weight: 600; font-size: 0.85rem; }
+    .cert-badge .cert-name { font-weight: 600; font-size: 0.85rem; color: var(--text); transition: color 0.2s; }
+    .cert-badge:hover .cert-name { color: var(--amber); }
     .cert-badge .cert-issuer { font-size: 0.7rem; color: var(--muted); font-family: var(--font-mono); }
+    .cert-badge .cert-arrow { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); margin-left: 0.5rem; transition: color 0.2s; }
+    .cert-badge:hover .cert-arrow { color: var(--amber); }
 
     #contact {
       padding: 8rem 3.5rem; text-align: center;
@@ -389,9 +393,7 @@
       </div>
     </div>
   </div>
-
   <img src="https://github.com/krutikakulkarni-git.png" alt="Krutika Kulkarni" class="hero-avatar"/>
-
 </section>
 
 <section id="about" style="padding: 6rem 3.5rem; background: var(--surface);">
@@ -429,6 +431,11 @@
         </div>
         <div>
           <div class="exp-role">Graduate Research Assistant · Data Engineer</div>
+          <ul class="exp-bullets">
+            <li>Built Python/SQL ETL pipelines integrating REST APIs to automate data ingestion and transformation, reducing reporting cycle time by 80%.</li>
+            <li>Designed and deployed a centralized PostgreSQL database consolidating multi-source structured data, eliminating manual reconciliation workflows.</li>
+            <li>Orchestrated Airflow DAGs with Git version control feeding real-time Power BI dashboards, tracking 8+ operational KPIs across business units.</li>
+          </ul>
         </div>
       </div>
 
@@ -440,6 +447,18 @@
         </div>
         <div>
           <div class="exp-role">Data Engineer</div>
+          <div class="exp-project-label">Real-Time Streaming & Warehouse Optimization <span class="tech-pill">PySpark · GCP Pub/Sub · Snowflake · dbt</span></div>
+          <ul class="exp-bullets">
+            <li>Engineered 50+ modular dbt models on Snowflake and PySpark transformation scripts processing 100K+ records, improving downstream model accuracy by 15%.</li>
+            <li>Architected an event-driven GCP Pub/Sub pipeline automating real-time data refreshes across 15+ heterogeneous sources, reducing end-to-end data latency by 40%.</li>
+            <li>Optimized multi-terabyte Snowflake tables using clustering keys and partition pruning, cutting cloud compute costs by 25%.</li>
+          </ul>
+          <div class="exp-project-label">ETL Modernization & Data Reliability <span class="tech-pill">Airflow · dbt · GitHub Actions · Docker</span></div>
+          <ul class="exp-bullets">
+            <li>Migrated 30+ legacy ETL scripts to modular Airflow DAGs with CI/CD integration, eliminating manual handoffs and cutting reporting overhead by 120 hours monthly.</li>
+            <li>Built a dbt testing framework enforcing schema contracts and business logic validations across 50+ models, improving data reliability to 99.9%.</li>
+            <li>Accelerated production release cycles by 50% by integrating GitHub Actions with Docker for automated model validation across dev, staging, and production environments.</li>
+          </ul>
         </div>
       </div>
 
@@ -451,12 +470,18 @@
         </div>
         <div>
           <div class="exp-role">Programmer Analyst Trainee</div>
+          <ul class="exp-bullets">
+            <li>Developed interactive Tableau dashboards by querying MySQL databases with optimized SQL, consolidating multi-source relational data into stakeholder-facing KPI reports.</li>
+            <li>Authored Python scripts for data profiling, cleansing, and standardization across structured datasets, improving consistency and reliability of data feeding downstream ETL pipelines.</li>
+            <li>Built and maintained ETL workflows extracting, transforming, and loading data across MySQL and relational databases — automating manual data preparation tasks and reducing processing time.</li>
+          </ul>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 <section id="projects">
   <div style="max-width:1100px;margin:0 auto">
     <div class="pipeline-label reveal">Portfolio</div>
@@ -469,7 +494,6 @@
     </div>
     <div class="projects-grid">
 
-      <!-- AI — Hybrid Mode Agent (1st) -->
       <div class="project-card reveal" data-cat="ai">
         <div class="proj-category">AI · Browser-Use Agent</div>
         <div class="proj-title">Hybrid Mode Agent</div>
@@ -485,7 +509,6 @@
         <a class="proj-gh-link" href="https://github.com/kkulkuic/demo-agent-ccc" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- AI — Self-Correcting Web Research Agent (2nd) -->
       <div class="project-card reveal" data-cat="ai">
         <div class="proj-category">AI · Multi-Agent · RAG</div>
         <div class="proj-title">Self-Correcting Web Research Agent</div>
@@ -501,7 +524,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/Self-Correcting-Web-Research-Agent" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- AI — Agentic Supply Chain Optimizer (3rd) -->
       <div class="project-card reveal" data-cat="ai">
         <div class="proj-category">AI · Reinforcement Learning</div>
         <div class="proj-title">Agentic Supply Chain Optimizer</div>
@@ -515,7 +537,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/Agentic-Supply-Chain-Optimizer" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- ML — existing -->
       <div class="project-card reveal" data-cat="ml">
         <div class="proj-category">ML · NLP</div>
         <div class="proj-title">LLM Suicide Risk Analysis</div>
@@ -529,7 +550,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/LLM-feature-engineering-for-suicide-risk-analysis" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- ML — Bank Marketing -->
       <div class="project-card reveal" data-cat="ml">
         <div class="proj-category">ML · Classification</div>
         <div class="proj-title">Bank Marketing Response Prediction</div>
@@ -543,7 +563,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/Bank-Marketing-Response-Prediction-Using-Classification-Models" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- ML — Bayesian -->
       <div class="project-card reveal" data-cat="ml">
         <div class="proj-category">ML · Probabilistic Inference</div>
         <div class="proj-title">Bayesian Rule Modeling</div>
@@ -557,7 +576,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/Bayesian-Rule" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- ML — Prostate Cancer -->
       <div class="project-card reveal" data-cat="ml">
         <div class="proj-category">ML · Survival Analysis</div>
         <div class="proj-title">Prostate Cancer Survival Prediction</div>
@@ -571,7 +589,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/Prostate-Cancer-survival-prediction" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- ML — Hospital Pricing -->
       <div class="project-card reveal" data-cat="ml">
         <div class="proj-category">ML · Healthcare Analytics</div>
         <div class="proj-title">Mission Hospital Package Pricing Analysis</div>
@@ -585,7 +602,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/MissionHospital-Package-Pricing-Analysis" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- ML — Lending Club -->
       <div class="project-card reveal" data-cat="ml">
         <div class="proj-category">ML · Finance</div>
         <div class="proj-title">Lending Club Loan Default & Investment Strategy</div>
@@ -599,7 +615,6 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/Lending-club-loan-defaults-investment-strategy" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <!-- VIZ — Transportation Dashboard -->
       <div class="project-card reveal" data-cat="viz">
         <div class="proj-category">Visualization · Traffic Analytics</div>
         <div class="proj-title">Transportation Traffic Volume Dashboard</div>
@@ -613,11 +628,10 @@
         <a class="proj-gh-link" href="https://public.tableau.com/app/profile/krutika.k2947/viz/Transportationdashboard_16963215256380/Dashboard1" target="_blank">↗ View on Tableau Public</a>
       </div>
 
-      <!-- VIZ -->
       <div class="project-card reveal" data-cat="viz">
         <div class="proj-category">Visualization · BI · Segmentation</div>
         <div class="proj-title">Customer Segmentation & RFM Analysis</div>
-        <p class="proj-desc">End-to-end customer segmentation for an automobile bike company using RFM (Recency, Frequency, Monetary) modeling to classify customers into 11 behavioral segments — Platinum, Very Loyal, High Risk, Lost, and more. Data cleaning across 4 datasets in Python, EDA on demographics and purchasing behavior, and a Tableau Sales Dashboard for actionable segment targeting.</p>
+        <p class="proj-desc">End-to-end customer segmentation using RFM (Recency, Frequency, Monetary) modeling to classify customers into 11 behavioral segments — Platinum, Very Loyal, High Risk, Lost, and more. Data cleaning across 4 datasets in Python, EDA on demographics and purchasing behavior, and a Tableau Sales Dashboard for actionable segment targeting.</p>
         <div class="proj-tags">
           <span class="proj-tag">Python</span>
           <span class="proj-tag">Tableau</span>
@@ -632,7 +646,6 @@
   </div>
 </section>
 
-<!-- ── SKILLS ── -->
 <section id="skills">
   <div style="max-width:1100px;margin:0 auto">
     <div class="pipeline-label reveal">Toolkit</div>
@@ -682,7 +695,6 @@
   </div>
 </section>
 
-<!-- ── EDUCATION ── -->
 <section id="education">
   <div style="max-width:1100px;margin:0 auto">
     <div class="pipeline-label reveal">Background</div>
@@ -701,17 +713,17 @@
         <div class="edu-courses">Data Structures & Algorithms · Statistics · Calculus · Probability · Automation & Robotics</div>
       </div>
     </div>
-    <div class="cert-badge reveal">
+    <a class="cert-badge reveal" href="https://www.credly.com/badges/d0e98236-bbc7-4ca8-baab-a09502c9ca57" target="_blank">
       <span class="cert-icon">🏆</span>
       <div>
         <div class="cert-name">AWS Certified Data Engineer — Associate</div>
-        <div class="cert-issuer">Amazon Web Services</div>
+        <div class="cert-issuer">Amazon Web Services · Verify on Credly</div>
       </div>
-    </div>
+      <span class="cert-arrow">↗</span>
+    </a>
   </div>
 </section>
 
-<!-- ── CONTACT ── -->
 <section id="contact">
   <div class="contact-big reveal">GET IN<br><span>TOUCH</span></div>
   <div class="contact-links reveal">
