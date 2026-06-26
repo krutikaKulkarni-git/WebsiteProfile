@@ -65,6 +65,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
+      justify-items: center;
       padding: 7rem 3.5rem 4rem;
       gap: 4rem;
       position: relative;
@@ -89,7 +90,7 @@
     }
     @keyframes gridShift { 0%{background-position:0 0} 100%{background-position:60px 60px} }
 
-    .hero-left { position: relative; z-index: 1; }
+    .hero-left { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; }
     .hero-tag {
       display: inline-flex; align-items: center; gap: 0.6rem;
       font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.3em;
@@ -374,24 +375,6 @@
       <a href="#experience" class="btn-primary">See My Work</a>
       <a href="#contact" class="btn-ghost">Get in Touch</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">4+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">50+</span>
-        <span class="stat-label">dbt Models Shipped</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">99.9%</span>
-        <span class="stat-label">Data Reliability</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">40%</span>
-        <span class="stat-label">Latency Reduction</span>
-      </div>
-    </div>
   </div>
   <img src="https://github.com/krutikakulkarni-git.png" alt="Krutika Kulkarni" class="hero-avatar"/>
 </section>
@@ -431,11 +414,6 @@
         </div>
         <div>
           <div class="exp-role">Graduate Research Assistant · Data Engineer</div>
-          <ul class="exp-bullets">
-            <li>Built Python/SQL ETL pipelines integrating REST APIs to automate data ingestion and transformation, reducing reporting cycle time by 80%.</li>
-            <li>Designed and deployed a centralized PostgreSQL database consolidating multi-source structured data, eliminating manual reconciliation workflows.</li>
-            <li>Orchestrated Airflow DAGs with Git version control feeding real-time Power BI dashboards, tracking 8+ operational KPIs across business units.</li>
-          </ul>
         </div>
       </div>
 
@@ -447,18 +425,6 @@
         </div>
         <div>
           <div class="exp-role">Data Engineer</div>
-          <div class="exp-project-label">Real-Time Streaming & Warehouse Optimization <span class="tech-pill">PySpark · GCP Pub/Sub · Snowflake · dbt</span></div>
-          <ul class="exp-bullets">
-            <li>Engineered 50+ modular dbt models on Snowflake and PySpark transformation scripts processing 100K+ records, improving downstream model accuracy by 15%.</li>
-            <li>Architected an event-driven GCP Pub/Sub pipeline automating real-time data refreshes across 15+ heterogeneous sources, reducing end-to-end data latency by 40%.</li>
-            <li>Optimized multi-terabyte Snowflake tables using clustering keys and partition pruning, cutting cloud compute costs by 25%.</li>
-          </ul>
-          <div class="exp-project-label">ETL Modernization & Data Reliability <span class="tech-pill">Airflow · dbt · GitHub Actions · Docker</span></div>
-          <ul class="exp-bullets">
-            <li>Migrated 30+ legacy ETL scripts to modular Airflow DAGs with CI/CD integration, eliminating manual handoffs and cutting reporting overhead by 120 hours monthly.</li>
-            <li>Built a dbt testing framework enforcing schema contracts and business logic validations across 50+ models, improving data reliability to 99.9%.</li>
-            <li>Accelerated production release cycles by 50% by integrating GitHub Actions with Docker for automated model validation across dev, staging, and production environments.</li>
-          </ul>
         </div>
       </div>
 
@@ -470,11 +436,6 @@
         </div>
         <div>
           <div class="exp-role">Programmer Analyst Trainee</div>
-          <ul class="exp-bullets">
-            <li>Developed interactive Tableau dashboards by querying MySQL databases with optimized SQL, consolidating multi-source relational data into stakeholder-facing KPI reports.</li>
-            <li>Authored Python scripts for data profiling, cleansing, and standardization across structured datasets, improving consistency and reliability of data feeding downstream ETL pipelines.</li>
-            <li>Built and maintained ETL workflows extracting, transforming, and loading data across MySQL and relational databases — automating manual data preparation tasks and reducing processing time.</li>
-          </ul>
         </div>
       </div>
 
