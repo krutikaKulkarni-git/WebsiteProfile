@@ -62,23 +62,22 @@
 
     #hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       align-items: center;
-      justify-items: center;
-      padding: 7rem 6rem 4rem;
-      gap: 2rem;
+      justify-content: center;
+      padding: 7rem 3.5rem 4rem;
+      gap: 5rem;
       position: relative;
       overflow: hidden;
     }
     .hero-avatar {
-      width: 340px; height: 340px;
+      width: 300px; height: 300px;
       border-radius: 50%;
       border: 2px solid rgba(0,229,192,0.35);
       object-fit: cover;
       box-shadow: 0 0 60px rgba(0,229,192,0.12);
       position: relative; z-index: 1;
-      justify-self: center;
+      flex-shrink: 0;
     }
     .hero-bg-grid {
       position: absolute; inset: 0; z-index: 0;
@@ -90,7 +89,7 @@
     }
     @keyframes gridShift { 0%{background-position:0 0} 100%{background-position:60px 60px} }
 
-    .hero-left { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; }
+    .hero-left { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; max-width: 460px; }
     .hero-tag {
       display: inline-flex; align-items: center; gap: 0.6rem;
       font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.3em;
