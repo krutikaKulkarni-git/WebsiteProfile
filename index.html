@@ -456,6 +456,23 @@
     </div>
     <div class="projects-grid">
 
+      <!-- AI — GeoRx Health Supply Chain -->
+      <div class="project-card reveal" data-cat="ai">
+        <div class="proj-category">AI · Multi-Agent · Supply Chain</div>
+        <div class="proj-title">GeoRx — Geopolitical Health Supply Chain Risk Agent</div>
+        <p class="proj-desc">Hierarchical multi-agent system built for the Google Cloud Rapid Agent Hackathon that detects geopolitical disruptions and traces cascading pharmaceutical supply chain risk. A root orchestrator coordinates three specialized sub-agents — stock forecasting, financial impact, and procurement — using Google ADK, Gemini 2.5 Flash on Vertex AI, MongoDB Atlas, and Elasticsearch. Arize Phoenix provides real-time observability across the agent pipeline.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Google ADK</span>
+          <span class="proj-tag">Gemini 2.5 Flash</span>
+          <span class="proj-tag">Vertex AI</span>
+          <span class="proj-tag">MongoDB Atlas</span>
+          <span class="proj-tag">Elasticsearch</span>
+          <span class="proj-tag">Arize Phoenix</span>
+          <span class="proj-tag">Python</span>
+        </div>
+        <a class="proj-gh-link" href="https://github.com/Vishwajyothireshmi/Google-Cloud-Rapid-Agent-Hackathon" target="_blank">↗ View on GitHub</a>
+      </div>
+
       <div class="project-card reveal" data-cat="ai">
         <div class="proj-category">AI · Browser-Use Agent</div>
         <div class="proj-title">Hybrid Mode Agent</div>
@@ -503,7 +520,7 @@
       <div class="project-card reveal" data-cat="rag">
         <div class="proj-category">LLM / RAG · Enterprise AI</div>
         <div class="proj-title">Legal AI Platform</div>
-        <p class="proj-desc">Enterprise-grade Legal RAG platform using FastAPI and LangChain to automate multi-document contractual extraction. Features an async ingestion pipeline with semantic chunking, nomic-embed-text embeddings, and bulk-upserts to Pinecone. Implements a hybrid inference engine with Redis caching for sub-millisecond responses and a Docker-to-host bridge routing fallback vector queries to local Llama 3.2 accelerated via Apple Silicon GPU — full environmental isolation without sacrificing native hardware speed.</p>
+        <p class="proj-desc">Architected and containerized a high-performance Legal RAG pipeline using FastAPI, LangChain, and Docker Compose to handle complex contractual data extractions. Engineered a decoupled, asynchronous ingestion layer utilizing semantic chunking strategies and bulk-upsert indexing into a cloud-native Pinecone vector database via background workers. Implemented a production-grade microservices caching strategy by deploying an isolated Redis container to achieve sub-millisecond query optimization and low-latency response times. Designed a hybrid, zero-trust network infrastructure using tailored environment mapping to bridge containerized application workflows seamlessly with host-level Ollama model inference execution, successfully isolating core backend application state while maintaining full native hardware performance.</p>
         <div class="proj-tags">
           <span class="proj-tag">FastAPI</span>
           <span class="proj-tag">LangChain</span>
