@@ -254,6 +254,7 @@
     }
     .proj-gh-link:hover { color: var(--accent); }
     .project-card[data-cat="ai"] .proj-category { color: var(--accent); }
+    .project-card[data-cat="rag"] .proj-category { color: #e05fff; }
     .project-card[data-cat="ml"] .proj-category { color: var(--accent2); }
     .project-card[data-cat="viz"] .proj-category { color: var(--amber); }
 
@@ -449,6 +450,7 @@
     <div class="projects-filter reveal">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="ai">AI / Agents</button>
+      <button class="filter-btn" data-filter="rag">LLM / RAG</button>
       <button class="filter-btn" data-filter="ml">ML</button>
       <button class="filter-btn" data-filter="viz">Visualization</button>
     </div>
@@ -497,8 +499,26 @@
         <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/Agentic-Supply-Chain-Optimizer" target="_blank">↗ View on GitHub</a>
       </div>
 
-      <div class="project-card reveal" data-cat="ml">
-        <div class="proj-category">ML · NLP</div>
+      <!-- LLM/RAG — Legal AI Platform -->
+      <div class="project-card reveal" data-cat="rag">
+        <div class="proj-category">LLM / RAG · Enterprise AI</div>
+        <div class="proj-title">Legal AI Platform</div>
+        <p class="proj-desc">Enterprise-grade Legal RAG platform using FastAPI and LangChain to automate multi-document contractual extraction. Features an async ingestion pipeline with semantic chunking, nomic-embed-text embeddings, and bulk-upserts to Pinecone. Implements a hybrid inference engine with Redis caching for sub-millisecond responses and a Docker-to-host bridge routing fallback vector queries to local Llama 3.2 accelerated via Apple Silicon GPU — full environmental isolation without sacrificing native hardware speed.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">FastAPI</span>
+          <span class="proj-tag">LangChain</span>
+          <span class="proj-tag">Pinecone</span>
+          <span class="proj-tag">Redis</span>
+          <span class="proj-tag">Llama 3.2</span>
+          <span class="proj-tag">Docker</span>
+          <span class="proj-tag">RAG</span>
+          <span class="proj-tag">Python</span>
+        </div>
+        <a class="proj-gh-link" href="https://github.com/krutikaKulkarni-git/legal-ai-platform" target="_blank">↗ View on GitHub</a>
+      </div>
+
+      <div class="project-card reveal" data-cat="rag">
+        <div class="proj-category">LLM / RAG · NLP</div>
         <div class="proj-title">LLM Suicide Risk Analysis</div>
         <p class="proj-desc">LLM-based feature extraction pipeline transforming 225K+ Reddit posts into structured clinical variables using fine-tuned RoBERTa models for public health research.</p>
         <div class="proj-tags">
@@ -649,7 +669,7 @@
       <div class="skill-block">
         <div class="skill-icon">🧠</div>
         <div class="skill-name">AI & Agents</div>
-        <div class="skill-list">LangGraph · LangChain · Claude API · Gemini · RAG Pipelines · TruLens · Playwright · Tavily · SerpAPI · Firecrawl · Chainlit · Vertex AI · Prompt Engineering</div>
+        <div class="skill-list">LangGraph · LangChain · FastAPI · Claude API · Gemini · RAG Pipelines · Pinecone · Ollama · TruLens · Playwright · Tavily · SerpAPI · Firecrawl · Chainlit · Vertex AI · Prompt Engineering</div>
       </div>
     </div>
   </div>
